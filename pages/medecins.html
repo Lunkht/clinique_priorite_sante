@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3>Liste des Médecins</h3>
+            <a href="{{ url_for('ajouter_medecin') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter un médecin</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Nom</th>
+                        <th>Spécialité</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if medecins %}
+                        {% for medecin in medecins %}
+                        <tr>
+                            <td><img src="{{ url_for('static', filename='uploads/medecins/' + medecin.photo) }}" alt="{{ medecin.nom }}" class="doctor-thumb"></td>
+                            <td>{{ medecin.nom }}</td>
+                            <td>{{ medecin.specialite }}</td>
+                            <td class="actions-cell">
+                                <a href="{{ url_for('modifier_medecin', medecin_id=medecin.id) }}" class="btn btn-info" title="Modifier"><i class="fas fa-edit"></i></a>
+                                <form method="POST" action="{{ url_for('supprimer_medecin', medecin_id=medecin.id) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce médecin ?');" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger" title="Supprimer"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="text-center">Aucun médecin n'a été ajouté pour le moment.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

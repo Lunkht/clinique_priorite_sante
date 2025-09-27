@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>{{ title }}</h3>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="form-group">
+                <label for="nom">Nom de la clinique</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="{{ clinique.nom if clinique else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="adresse">Adresse complète</label>
+                <input type="text" id="adresse" name="adresse" class="form-control" value="{{ clinique.adresse if clinique else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="text" id="telephone" name="telephone" class="form-control" value="{{ clinique.telephone if clinique else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email (facultatif)</label>
+                <input type="email" id="email" name="email" class="form-control" value="{{ clinique.email if clinique else '' }}">
+            </div>
+            <div class="form-group">
+                <label for="heures_ouverture">Heures d'ouverture (ex: Lundi - Vendredi: 8h-18h)</label>
+                <input type="text" id="heures_ouverture" name="heures_ouverture" class="form-control" value="{{ clinique.heures_ouverture if clinique else '' }}">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                <a href="{{ url_for('gerer_cliniques') }}" class="btn btn-secondary">Annuler</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

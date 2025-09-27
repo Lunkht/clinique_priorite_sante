@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Dernières demandes de rendez-vous</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Contact</th>
+                        <th>Spécialité</th>
+                        <th>Date du RDV</th>
+                        <th>Statut</th>
+                        <th>Date de la demande</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if appointments.items %}
+                        {% for rdv in appointments.items %}
+                        <tr class="status-{{ rdv.status.lower().replace(' ', '-') }}">
+                            <td>{{ rdv.nom_patient }}</td>
+                            <td>{{ rdv.email_patient }}<br>{{ rdv.telephone_patient }}</td>
+                            <td>{{ rdv.specialite }}</td>
+                            <td>{{ rdv.date_rdv.strftime('%d/%m/%Y à %Hh%M') }}</td>
+                            <td><span class="status-badge">{{ rdv.status }}</span></td>
+                            <td>{{ rdv.date_creation.strftime('%d/%m/%Y') }}</td>
+                            <td class="actions-cell">
+                                {% if rdv.status == 'En attente' %}
+                                <form method="POST" action="{{ url_for('update_appointment_status', rdv_id=rdv.id) }}" style="display:inline;">
+                                    <input type="hidden" name="status" value="Confirmé">
+                                    <button type="submit" class="btn btn-success" title="Accepter"><i class="fas fa-check"></i></button>
+                                </form>
+                                <form method="POST" action="{{ url_for('update_appointment_status', rdv_id=rdv.id) }}" style="display:inline;">
+                                    <input type="hidden" name="status" value="Annulé">
+                                    <button type="submit" class="btn btn-warning" title="Refuser"><i class="fas fa-times"></i></button>
+                                </form>
+                                {% endif %}
+                                <form method="POST" action="{{ url_for('delete_appointment', rdv_id=rdv.id) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce rendez-vous ?');" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger" title="Supprimer définitivement"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="7" class="text-center">Aucun rendez-vous pour le moment.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <!-- Contrôles de Pagination -->
+        {% if appointments.pages > 1 %}
+        <nav aria-label="Pagination des rendez-vous" class="pagination-nav">
+            <ul class="pagination">
+                <!-- Lien Précédent -->
+                <li class="page-item {% if not appointments.has_prev %}disabled{% endif %}">
+                    <a class="page-link" href="{{ url_for('dashboard', page=appointments.prev_num) }}">Précédent</a>
+                </li>
+                <!-- Numéros de page -->
+                {% for page_num in appointments.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                    {% if page_num %}
+                        <li class="page-item {% if page_num == appointments.page %}active{% endif %}">
+                            <a class="page-link" href="{{ url_for('dashboard', page=page_num) }}">{{ page_num }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">…</span></li>
+                    {% endif %}
+                {% endfor %}
+                <!-- Lien Suivant -->
+                <li class="page-item {% if not appointments.has_next %}disabled{% endif %}">
+                    <a class="page-link" href="{{ url_for('dashboard', page=appointments.next_num) }}">Suivant</a>
+                </li>
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

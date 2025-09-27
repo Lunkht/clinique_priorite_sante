@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3>Liste des Cliniques</h3>
+            <a href="{{ url_for('ajouter_clinique') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter une clinique</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if cliniques %}
+                        {% for clinique in cliniques %}
+                        <tr>
+                            <td>{{ clinique.nom }}</td>
+                            <td>{{ clinique.adresse }}</td>
+                            <td>{{ clinique.telephone }}</td>
+                            <td class="actions-cell">
+                                <a href="{{ url_for('modifier_clinique', clinique_id=clinique.id) }}" class="btn btn-info" title="Modifier"><i class="fas fa-edit"></i></a>
+                                <form method="POST" action="{{ url_for('supprimer_clinique', clinique_id=clinique.id) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette clinique ?');" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger" title="Supprimer"><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="text-center">Aucune clinique n'a été ajoutée pour le moment.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Admin Clinique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_style.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-clinic-medical"></i> Priorité Santé</h3>
+                <p>Panneau d'Administration</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="{{ url_for('dashboard') }}" class="{{ 'active' if 'dashboard' in request.endpoint }}">
+                            <i class="fas fa-tachometer-alt"></i> Tableau de bord
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('gerer_medecins') }}" class="{{ 'active' if 'medecin' in request.endpoint }}">
+                            <i class="fas fa-user-md"></i> Gérer les Médecins
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('gerer_specialites') }}" class="{{ 'active' if 'specialite' in request.endpoint }}">
+                            <i class="fas fa-star-of-life"></i> Gérer les Spécialités
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('gerer_cliniques') }}" class="{{ 'active' if 'clinique' in request.endpoint }}">
+                            <i class="fas fa-hospital"></i> Gérer les Cliniques
+                        </a>
+                    </li>
+                    <!-- Ajoutez d'autres liens ici (ex: gestion des médecins, etc.) -->
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                {% if current_user.is_authenticated %}
+                    <p>Connecté: {{ current_user.username }}</p>
+                    <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                {% endif %}
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header-admin">
+                <h1>{{ title }}</h1>
+            </header>
+            <div class="content-wrapper">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

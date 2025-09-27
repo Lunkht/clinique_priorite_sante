@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { padding: 20px; border: 1px solid #ddd; border-radius: 5px; max-width: 600px; margin: auto; }
+        .header { color: #6f0132; font-size: 24px; margin-bottom: 20px; }
+        .footer { margin-top: 20px; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Confirmation de votre rendez-vous</h1>
+        <p>Bonjour {{ rdv.nom_patient }},</p>
+        <p>
+            Nous avons le plaisir de vous confirmer votre rendez-vous à la <strong>Clinique Priorité Santé</strong>.
+        </p>
+        <ul>
+            <li><strong>Spécialité :</strong> {{ rdv.specialite }}</li>
+            <li><strong>Date et Heure :</strong> {{ rdv.date_rdv.strftime('%d/%m/%Y à %Hh%M') }}</li>
+        </ul>
+        <p>
+            Veuillez vous présenter à l'accueil 15 minutes avant l'heure de votre rendez-vous.
+        </p>
+        <p>
+            En cas d'empêchement, merci de nous contacter au plus vite.
+        </p>
+        <div class="footer">
+            <p>Cordialement,<br>L'équipe de la Clinique Priorité Santé</p>
+        </div>
+    </div>
+</body>
+</html>

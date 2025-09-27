@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>{{ title }}</h3>
+    </div>
+    <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nom">Nom complet</label>
+                <input type="text" id="nom" name="nom" class="form-control" value="{{ medecin.nom if medecin else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="specialite">Spécialité</label>
+                <input type="text" id="specialite" name="specialite" class="form-control" value="{{ medecin.specialite if medecin else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="biographie">Biographie (courte)</label>
+                <textarea id="biographie" name="biographie" class="form-control" rows="5">{{ medecin.biographie if medecin else '' }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="file" id="photo" name="photo" class="form-control-file" accept="image/*">
+                {% if medecin and medecin.photo %}
+                    <small class="form-text text-muted">Photo actuelle : {{ medecin.photo }}</small>
+                    <img src="{{ url_for('static', filename='uploads/medecins/' + medecin.photo) }}" alt="{{ medecin.nom }}" class="doctor-thumb mt-2">
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                <a href="{{ url_for('gerer_medecins') }}" class="btn btn-secondary">Annuler</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
