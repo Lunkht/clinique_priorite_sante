@@ -1,141 +1,63 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prendre rendez-vous - Clinique Priorité Santé</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="shortcut icon" href="../images/favicon.jpg" type="image/x-icon">
-</head>
-<body>
-    <!-- Top Navigation -->
-    <div class="top-nav">
-        <div class="container">
-            <div class="contact-info">
-                <span><i class="fas fa-envelope"></i> contact@prioritesante.com</span>
+{% extends "base.html" %}
+{% block title %}Prendre rendez-vous{% endblock %}
+{% block content %}
+<!-- Appointment Section -->
+<section class="appointment-section">
+    <div class="container">
+        <div class="appointment-container">
+            <div class="appointment-info">
+                <h2>Prenez rendez-vous facilement</h2>
+                <p>Remplissez le formulaire ci-dessous pour planifier votre consultation. Notre équipe vous contactera pour confirmer votre rendez-vous.</p>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Urgences 24/7</h4>
+                        <p>En cas d'urgence, appelez-nous directement au<br><strong>+224 622 22 22 22</strong></p>
+                    </div>
+                </div>
+                <img src="{{ url_for('static', filename='images/appointment-image.jpg') }}" alt="Prise de rendez-vous" class="info-image">
             </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <div class="signup-layout" style="display: flex;">
-                <li class="connexion-btn"><a href="./connexion.html">Se connecter</a></li>
-                <li class="inscription-btn"><a href="./inscription_form.html">S'inscrire</a></li>
+            <div class="appointment-form-container">
+                <form id="appointmentForm" class="appointment-form">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required placeholder="Ex: Jean Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="Ex: jean.dupont@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numéro de téléphone</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Ex: 06 12 34 56 78">
+                    </div>
+                    <div class="form-group">
+                        <label for="specialite">Spécialité souhaitée</label>
+                        <select id="specialite" name="specialite" required>
+                            <option value="" disabled selected>Choisissez une spécialité</option>
+                            <option value="Cardiologie">Cardiologie</option>
+                            <option value="Pédiatrie">Pédiatrie</option>
+                            <option value="Gynécologie">Gynécologie</option>
+                            <option value="Chirurgie Générale">Chirurgie Générale</option>
+                            <option value="Radiologie">Radiologie</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date et heure souhaitées</label>
+                        <input type="datetime-local" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Notes supplémentaires (facultatif)</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Décrivez brièvement la raison de votre visite..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-paper-plane"></i> Envoyer la demande
+                    </button>
+                    <div id="form-status" class="form-status"></div>
+                </form>
             </div>
         </div>
     </div>
-
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <img src="../images/logo.jpg" alt="Clinique Priorité Santé Logo" class="logo-img">
-            </div>
-            <button class="menu-toggle" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="../index.html">Accueil</a></li>
-                    <li><a href="specialites.html">Spécialités</a></li>
-                    <li><a href="medecins.html">Nos Médecins</a></li>
-                    <li><a href="rendez-vous.html">Prendre rendez-vous</a></li>
-                    <li><a href="apropos.html">À Propos</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Appointment Section -->
-    <section class="appointment-section">
-        <div class="container">
-            <div class="appointment-container">
-                <div class="appointment-info">
-                    <h2>Prenez rendez-vous facilement</h2>
-                    <p>Remplissez le formulaire ci-dessous pour planifier votre consultation. Notre équipe vous contactera pour confirmer votre rendez-vous.</p>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Urgences 24/7</h4>
-                            <p>En cas d'urgence, appelez-nous directement au<br><strong>+33 1 23 45 67 89</strong></p>
-                        </div>
-                    </div>
-                    <img src="../images/appointment-image.jpg" alt="Prise de rendez-vous" class="info-image">
-                </div>
-                <div class="appointment-form-container">
-                    <form id="appointmentForm" class="appointment-form">
-                        <div class="form-group">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" name="name" required placeholder="Ex: Jean Dupont">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Adresse e-mail</label>
-                            <input type="email" id="email" name="email" required placeholder="Ex: jean.dupont@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Numéro de téléphone</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="Ex: 06 12 34 56 78">
-                        </div>
-                        <div class="form-group">
-                            <label for="specialite">Spécialité souhaitée</label>
-                            <select id="specialite" name="specialite" required>
-                                <option value="" disabled selected>Choisissez une spécialité</option>
-                                <option value="Cardiologie">Cardiologie</option>
-                                <option value="Pédiatrie">Pédiatrie</option>
-                                <option value="Gynécologie">Gynécologie</option>
-                                <option value="Chirurgie Générale">Chirurgie Générale</option>
-                                <option value="Radiologie">Radiologie</option>
-                                <option value="Autre">Autre</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Date et heure souhaitées</label>
-                            <input type="datetime-local" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Notes supplémentaires (facultatif)</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Décrivez brièvement la raison de votre visite..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">
-                            <i class="fas fa-paper-plane"></i> Envoyer la demande
-                        </button>
-                        <div id="form-status" class="form-status"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Liens Rapides</h3>
-                    <ul>
-                        <li><a href="../index.html">Accueil</a></li>
-                        <li><a href="specialites.html">Spécialités</a></li>
-                        <li><a href="medecins.html">Nos Médecins</a></li>
-                        <li><a href="apropos.html">À Propos</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Paris, Boulevard / ....</p>
-                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
-                    <p><i class="fas fa-envelope"></i> contact@prioritesante.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Clinique Priorité Santé. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="../js/main.js"></script>
-    <script src="../js/appointment.js" defer></script>
-</body>
-</html>
+</section>
+{% endblock %}
