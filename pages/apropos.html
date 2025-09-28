@@ -4,48 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À Propos - Clinique Priorité Santé</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Top Navigation -->
-    <div class="top-nav">
-        <div class="container">
-            <div class="contact-info">
-                <span><i class="fas fa-envelope"></i> contact@prioritesante.com</span>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <div class="signup-layout" style="display: flex;">
-                <li class="connexion-btn"><a href="./connexion.html">Se connecter</a></li>
-                <li class="inscription-btn"><a href="./inscription_form.html">S'inscrire</a></li>
-            </div>
-        </div>
-    </div>
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <img src="../images/logo.jpg" alt="Clinique Priorité Santé Logo" class="logo-img">
-            </div>
-            <button class="menu-toggle" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="../index.html">Accueil</a></li>
-                    <li><a href="specialites.html">Spécialités</a></li>
-                    <li><a href="medecins.html">Nos Médecins</a></li>
-                    <li><a href="rendez-vous.html">Prendre rendez-vous</a></li>
-                    <li><a href="apropos.html">À Propos</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+     <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><img src="images/logo-01.svg" alt=""></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#specialties">Specialité</a></li>
+                    <li><a href="#services">Services Medicals</a></li>
+                    <li><a href="#library">Bibliothèque de santé</a></li>
+                    <li><a href="#about">À propos du CPS</a></li>
                 </ul>
             </nav>
+            <a href="#emergency" class="emergency-btn"><img src="images/emergency_call-02.svg" alt=""> Appel Urgent</a>
         </div>
     </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1> Là où la guérison<br>est comme à la  <span class="highlight">maison</span></h1>
+                <p>Commencez votre parcours vers une meilleure santé. Trouvez le médecin et la spécialité qui vous conviennent ci-dessous.</p>
+               
+
+                <div class="doctor-search">
+                    <select class="search-input">
+                        <option>Docteur</option>
+                        <option>Cardiologie</option>
+                        <option>Neurologie</option>
+                        <option>Pediatricien</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="Search doctor name...">
+                    <button class="search-btn" onclick="searchDoctor()">🔍</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero.png">
+            </div>
+        </div>
+    </section>
 
     <!-- About Content Section -->
     <section class="about-content">

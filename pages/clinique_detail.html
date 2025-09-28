@@ -9,19 +9,46 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.jpg') }}" type="image/x-icon">
 </head>
 <body>
-    <!-- Top Navigation -->
-    <div class="top-nav">
-        <div class="container">
-            <div class="contact-info">
-                <span><i class="fas fa-envelope"></i> contact@prioritesante.com</span>
+     <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><img src="images/logo-01.svg" alt=""></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#specialties">Specialité</a></li>
+                    <li><a href="#services">Services Medicals</a></li>
+                    <li><a href="#library">Bibliothèque de santé</a></li>
+                    <li><a href="#about">À propos du CPS</a></li>
+                </ul>
+            </nav>
+            <a href="#emergency" class="emergency-btn"><img src="images/emergency_call-02.svg" alt=""> Appel Urgent</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1> Là où la guérison<br>est comme à la  <span class="highlight">maison</span></h1>
+                <p>Commencez votre parcours vers une meilleure santé. Trouvez le médecin et la spécialité qui vous conviennent ci-dessous.</p>
+               
+
+                <div class="doctor-search">
+                    <select class="search-input">
+                        <option>Docteur</option>
+                        <option>Cardiologie</option>
+                        <option>Neurologie</option>
+                        <option>Pediatricien</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="Search doctor name...">
+                    <button class="search-btn" onclick="searchDoctor()">🔍</button>
+                </div>
             </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+            <div class="hero-image">
+                <img src="images/hero.png">
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Main Header -->
     <header class="main-header">
