@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}{{ clinique.nom }}{% endblock %}
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="container">
+        <h2>{{ clinique.nom }}</h2>
+        <p>{{ clinique.adresse }}</p>
+    </div>
+</section>
+
+<!-- Clinique Detail Section -->
+<section class="clinique-detail-section">
+    <div class="container">
+        <div class="clinique-detail-grid">
+            <div class="clinique-detail-info">
+                <h3>Informations</h3>
+                <div class="clinique-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>{{ clinique.adresse }}</p>
+                    </div>
+                </div>
+                <div class="clinique-info-item">
+                    <i class="fas fa-phone"></i>
+
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>{{ clinique.telephone }}</p>
+                    </div>
+                </div>
+                {% if clinique.email %}
+                <div class="clinique-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>{{ clinique.email }}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% if clinique.heures_ouverture %}
+                <div class="clinique-info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Horaires</h4>
+                        <p>{{ clinique.heures_ouverture }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="clinique-detail-map">
+                {% if clinique.google_maps_url %}
+                    {{ clinique.google_maps_url|safe }}
+                {% else %}
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Carte non disponible</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

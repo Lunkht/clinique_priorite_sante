@@ -1,9 +1,0 @@
-# Fichiers de configuration locaux
-backend/.env
-
-# Fichiers de base de données
-backend/site.db
-
-# Dossiers de cache Python
-__pycache__/
-*.pyc

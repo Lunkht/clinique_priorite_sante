@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Section Liste des Cliniques -->
+<section class="cliniques-list" id="cliniques">
+    <div class="container">
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2 class="section-title">Nos Cliniques</h2>
+            <!-- Le bouton "emergency-btn" est utilisé pour la cohérence du style, mais vous pouvez créer une classe de bouton dédiée -->
+            <a href="{{ url_for('ajouter_clinique') }}" class="emergency-btn" style="text-decoration: none;">Ajouter une clinique</a>
+        </div>
+
+        {% if cliniques %}
+            <div class="cliniques-grid">
+                {% for clinique in cliniques %}
+                <div class="clinique-card">
+                    <h3>{{ clinique.nom }}</h3>
+                    <p><strong>Adresse :</strong> {{ clinique.adresse }}</p>
+                    <p><strong>Téléphone :</strong> {{ clinique.telephone }}</p>
+                    <div class="clinique-actions">
+                        <a href="{{ url_for('modifier_clinique', clinique_id=clinique.id) }}" class="action-link edit-link">Modifier</a>
+                        <form method="POST" action="{{ url_for('supprimer_clinique', clinique_id=clinique.id) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette clinique ?');" style="display:inline;">
+                            <button type="submit" class="action-link delete-link">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-cliniques">
+                <p>Aucune clinique n'a été ajoutée pour le moment.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Note: Vous devrez ajouter les styles CSS correspondants dans votre fichier main.css 
+     pour .cliniques-grid, .clinique-card, .clinique-actions, etc. 
+     pour obtenir le rendu visuel souhaité.
+-->
+
+{% endblock %}
