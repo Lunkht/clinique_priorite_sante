@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}À Propos{% endblock %}
+{% block content %}
+<!-- About Content Section -->
+<section class="about-content">
+    <div class="container">
+
+        <div class="about-section">
+            <h3>Notre Mission</h3>
+            <p>Notre mission est de :</p>
+            <ul>
+                <li>Fournir des soins médicaux complets et personnalisés.</li>
+                <li>Promouvoir la santé et le bien-être au sein de notre communauté.</li>
+                <li>Innover constamment dans nos pratiques et nos technologies médicales.</li>
+                <li>Garantir un environnement sûr et accueillant pour les patients et le personnel.</li>
+            </ul>
+        </div>
+
+        <div class="about-section">
+            <h3>Nos Valeurs</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <i class="fas fa-star"></i>
+                    <h4>Excellence</h4>
+                    <p>Nous visons l'excellence dans tout ce que nous faisons</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Compassion</h4>
+                    <p>Nous traitons chaque patient avec empathie et respect.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Innovation</h4>
+                    <p>Nous adoptons les avancées médicales pour de meilleurs soins.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Intégrité</h4>
+                    <p>Nous agissons avec honnêteté et transparence.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h3>Notre Équipe</h3>
+            <p>Notre équipe est composée de médecins, d'infirmiers, de chirurgiens et de personnel de soutien hautement qualifiés et passionnés par leur métier. Nous travaillons en collaboration pour assurer le meilleur résultat possible pour chaque patient.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="container">
+        <h3>Besoin de nous consulter ?</h3>
+        <p>Notre équipe est prête à vous accueillir. Prenez contact avec nous dès aujourd'hui.</p>
+        <a href="{{ url_for('contact') }}" class="cta-button">Contactez-nous</a>
+    </div>
+</section>
+{% endblock %}

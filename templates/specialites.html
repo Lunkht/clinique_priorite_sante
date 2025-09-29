@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Nos Spécialités{% endblock %}
+{% block content %}
+<!-- Spécialités Section -->
+<section class="services" id="specialites">
+    <div class="container">
+        <h2>Nos Spécialités Médicales</h2>
+        <p class="section-description">Nous offrons une large gamme de spécialités pour répondre à tous vos besoins de santé.</p>
+        <div class="services-grid">
+            <div class="service-card" id="cardiologie">
+                <img src="{{ url_for('static', filename='images/cardiologie.jpg') }}" alt="Cardiologie">
+                <h3>Cardiologie</h3>
+                <p>Soins complets pour le cœur et le système vasculaire.</p>
+            </div>
+            <div class="service-card" id="pediatrie">
+                <img src="{{ url_for('static', filename='images/pediatrie.jpg') }}" alt="Pédiatrie">
+                <h3>Pédiatrie</h3>
+                <p>Prise en charge de la santé des enfants, de la naissance à l'adolescence.</p>
+            </div>
+            <div class="service-card" id="chirurgie">
+                <img src="{{ url_for('static', filename='images/chirurgie.jpg') }}" alt="Chirurgie">
+                <h3>Chirurgie Générale</h3>
+                <p>Interventions chirurgicales réalisées par des experts.</p>
+            </div>
+            <div class="service-card" id="gynecologie">
+                <img src="{{ url_for('static', filename='images/gynecologie.jpg') }}" alt="Gynécologie">
+                <h3>Gynécologie</h3>
+                <p>Santé des femmes, suivi de grossesse et accouchement.</p>
+            </div>
+            <div class="service-card" id="radiologie">
+                <img src="{{ url_for('static', filename='images/radiologie.jpg') }}" alt="Radiologie">
+                <h3>Radiologie</h3>
+                <p>Services d'imagerie médicale de pointe (Rayons X, IRM, Scanner).</p>
+            </div>
+            <div class="service-card" id="laboratoire">
+                <img src="{{ url_for('static', filename='images/laboratoire.jpg') }}" alt="Laboratoire d'analyses">
+                <h3>Laboratoire d'analyses</h3>
+                <p>Analyses biologiques pour un diagnostic précis.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

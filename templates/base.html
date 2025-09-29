@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Clinique Priorité Santé</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><img src="{{ url_for('static', filename='images/logo-01.svg') }}" alt=""></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="{{ url_for('home') }}">Accueil</a></li>
+                    <li><a href="{{ url_for('cliniques') }}">Cliniques</a></li>
+                    <li><a href="#specialties">Specialité</a></li>
+                    <li><a href="#services">Services Medicals</a></li>
+                    <li><a href="#library">Bibliothèque de santé</a></li>
+                    <li><a href="#about">À propos du CPS</a></li>
+                </ul>
+            </nav>
+            <a href="#emergency" class="emergency-btn"><img src="{{ url_for('static', filename='images/emergency_call-02.svg') }}" alt=""> Appel Urgent</a>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer-comprehensive">
+        <div class="container">
+            <!-- Footer Main Content -->
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><img src="{{ url_for('static', filename='images/logo-01.svg') }}" alt="" srcset="" style="width: 200px; height: 90px;"></span>
+                   
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link twitter">✕</a>
+                        <a href="#" class="social-link facebook">f</a>
+                        <a href="#" class="social-link linkedin">in</a>
+                        <a href="#" class="social-link youtube">▶</a>
+                        <a href="#" class="social-link instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Entreprise</h4>
+                        <ul>
+                            <li><a href="#careers">Carrières</a></li>
+                            <li><a href="#contact">Contactez-nous</a></li>
+                            <li><a href="#news">Actualités et événements</a></li>
+                            <li><a href="#reports">Rapports biomédicaux</a></li>
+                            <li><a href="#awards">Récompenses</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Spécialité</h4>
+                        <ul>
+                            <li><a href="#cardiac">Soins cardiaques</a></li>
+                            <li><a href="#dentistry">Dentisterie</a></li>
+                            <li><a href="#gastro">Gastrosciences</a></li>
+                            <li><a href="#neuro">Neuroscience</a></li>
+                            <li><a href="#ortho">Orthopédie</a></li>
+                            <li><a href="#liver">Soins du foie</a></li>
+                            <li><a href="#renal">Soins rénaux</a></li>
+                            <li><a href="#gyneco">Gynécologie</a></li>
+                            <li><a href="#pediatric">Soins pédiatriques</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Services médicaux</h4>
+                        <ul>
+                            <li><a href="#find-doctor">Trouver un médecin</a></li>
+                            <li><a href="#book-appointment">Prendre rendez-vous pour l'hôpital</a></li>
+                            <li><a href="#home-care">Soins à domicile</a></li>
+                            <li><a href="#emergency">Ligne d'assistance d'urgence</a></li>
+                            <li><a href="#insurance">Assurance et facturation</a></li>
+                            <li><a href="#ambulance">Ambulance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>À propos de la Clinique Priorité Santé</h4>
+                        <ul>
+                            <li><a href="#history">Histoire</a></li>
+                            <li><a href="#vision">Visi & Mission</a></li>
+                            <li><a href="#home-care">Soins à domicile</a></li>
+                            <li><a href="#leader">Notre chef</a></li>
+                            <li><a href="#sustainability">Durabilité</a></li>
+                        </ul>
+                    </div>
+        
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>Designed par VulDesign <a href="#grapiku">Hakim</a></p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>&copy; 2025 Clinique Priorité Santé. Tout droits reservés.</p>
+                    <a href="#privacy">politique de confidentialité</a>
+                    <a href="#terms">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

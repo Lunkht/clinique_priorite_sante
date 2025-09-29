@@ -1,10 +1,8 @@
-from app import db, login_manager
+from extensions import db
 from flask_login import UserMixin
 from datetime import datetime
 
-@login_manager.user_loader
-def load_user(user_id):
-    return Admin.query.get(int(user_id))
+
 
 class Admin(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
