@@ -3,206 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinique Priorité Santé</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon">
+    <title>Clinique Priorité Santé - Là où la guérison se sent comme à la maison</title>
+  <link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
-
-    <!-- Top Navigation -->
-         
-    <div class="top-nav">
-        <div class="container">
-            <div class="contact-info">
-                <span><i class="fas fa-envelope"></i> contact@prioritesante.com</span>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <div class="signup-layout" style="display: flex;">
-                <li class="connexion-btn"><a href="./pages/connexion.html">Se connecter</a></li>
-                <li class="inscription-btn"><a href="./pages/inscription_form.html">S'inscrire</a></li>
-            </div>
-        </div>
-    </div> 
-
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <img src="images/logo.jpg" alt="Clinique Priorité Santé Logo" class="logo-img">
-            </div>
-            <button class="menu-toggle" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="pages/specialites.html">Spécialités</a></li>
-                    <li><a href="pages/medecins.html">Nos Médecins</a></li>
-                    <li><a href="pages/rendez-vous.html">Prendre rendez-vous</a></li>
-                    <li><a href="pages/apropos.html">À Propos</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><img src="images/logo-01.svg" alt=""></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#specialties">Specialité</a></li>
+                    <li><a href="#services">Services Medicals</a></li>
+                    <li><a href="#library">Bibliothèque de santé</a></li>
+                    <li><a href="#about">À propos du CPS</a></li>
                 </ul>
-
             </nav>
+            <a href="#emergency" class="emergency-btn"><img src="images/emergency_call-02.svg" alt=""> Appel Urgent</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h2>Bienvenue à la Clinique Priorité Santé</h2>
-            <h3>Votre Santé, Notre Priorité Absolue</h3>
-            <p>Nous offrons des soins médicaux de haute qualité avec compassion et expertise.</p>
-           <a href="pages/rendez-vous.html" class="cta-button">Prendre rendez-vous</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1> Là où la guérison<br>est comme à la  <span class="highlight">maison</span></h1>
+                <p>Commencez votre parcours vers une meilleure santé. Trouvez le médecin et la spécialité qui vous conviennent ci-dessous.</p>
+               
+
+                <div class="doctor-search">
+                    <select class="search-input">
+                        <option>Docteur</option>
+                        <option>Cardiologie</option>
+                        <option>Neurologie</option>
+                        <option>Pediatricien</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="Search doctor name...">
+                    <button class="search-btn" onclick="searchDoctor()">🔍</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero.png">
+            </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section class="about-us" style="background-color: #eeeeee;">
+    <!-- Specialties Section -->
+    <section class="specialties" id="specialties">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h1 style="color: black; font-size: 40px;">À propos de notre clinique</h1>
-
-                    <h2>Des soins centrés sur le patient</h2>
-                    <p>Fondée sur des principes d'excellence et de compassion, la Clinique Priorité Santé s'engage à fournir des soins de santé accessibles et de qualité supérieure à notre communauté.</p>
-                    <p>Notre équipe de professionnels dévoués utilise les technologies les plus modernes pour diagnostiquer et traiter un large éventail de conditions médicales, tout en assurant un environnement accueillant et sécurisant pour nos patients et leur famille.</p>
-                    <p>Nous croyons en une approche holistique de la santé, en nous concentrant non seulement sur le traitement des maladies, mais aussi sur la prévention et le bien-être général.</p>
+            <h2 class="section-title">Un écosystème pour l'excellence clinique</h2>
+            <p class="section-subtitle">Découvrez des soins de santé de classe mondiale dans les centres d'innovation médicale spécialisés d'Omnio. Nos installations de pointe offrent une expertise inégalée dans les spécialités clés et les superspécialités, établissant de nouvelles normes mondiales en matière d'excellence clinique et de soins aux patients.</p>
+            
+            <div class="specialties-grid" id="specialties-grid">
+                <div class="loading">
+                    <div class="spinner"></div>
                 </div>
-                <div class="about-image">
-                    <img src="images/hospital-building.jpg" alt="Bâtiment de la Clinique Priorité Santé">
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#all-specialties" class="view-all-btn">Voir toutes les spécialités →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disease Search Section -->
+    <section class="disease-search" id="library">
+        <div class="container">
+            <div class="disease-content">
+                <div class="disease-image">
+                    <h3>Soins personnalisés, transformés</h3>
+                    <p>Découvrez comment nous favorisons l'innovation</p>
+                    <a href="#innovation" class="learn-more-link">En savoir plus →</a>
+                </div>
+                
+                <div class="disease-search-content">
+                    <h2 class="section-title">Rechercher des maladies et des affections</h2>
+                    <p>Rechercher des maladies et des affections par la première lettre</p>
+                    
+                    <div class="alphabet-grid" id="alphabet-grid">
+                        <!-- Alphabet buttons will be generated by JavaScript -->
+                    </div>
+                    
+                    <div class="disease-search-box">
+                        <input type="text" placeholder="Search diseases..." id="disease-search-input">
+                        <button class="search-btn" onclick="searchDisease()">🔍</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Spécialités Section -->
-    <section class="services" id="services">
+    <!-- Stats Section -->
+    <section class="stats">
         <div class="container">
-            <h2>Nos Spécialités Médicales</h2>
-            <p class="section-description">Nous offrons une large gamme de spécialités pour répondre à tous vos besoins de santé.</p>
-            {% if specialites %}
-            <div class="services-grid">
-                {% for specialite in specialites %}
-                <div class="service-card">
-                    <img src="{{ url_for('static', filename='uploads/specialites/' + specialite.image) }}" alt="{{ specialite.nom }}">
-                    <h3>{{ specialite.nom }}</h3>
-                    <p>{{ specialite.description | truncate(80) }}</p>
+            <h2 class="section-title">Pourquoi choisir <span class="highlight">Clinique Priorité Santé ?</span></h2>
+            <p class="section-subtitle">À la Clinique Priorité Santé, nous combinons soins médicaux experts et compassion, offrant un traitement personnalisé pour garantir que chaque patient se sente soutenu et valorisé tout au long de son parcours de guérison..</p>
+            
+            <div class="stats-grid" id="stats-grid">
+                <div class="loading">
+                    <div class="spinner"></div>
                 </div>
-                {% endfor %}
             </div>
-            {% else %}
-            <p>Nos spécialités seront bientôt listées ici.</p>
-            {% endif %}
         </div>
     </section>
 
-    <!-- Témoignages Section -->
-    <section class="testimonials" id="testimonials">
+    <!-- Testimonials Section -->
+    <section class="testimonials">
         <div class="container">
-            <h2>Témoignages de nos patients</h2>
-            <p class="section-description">Découvrez ce que nos patients disent de leur expérience à la Clinique Priorité Santé.</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>L'équipe de cardiologie a été exceptionnelle. J'ai reçu des soins attentifs et très professionnels. Je me sens en pleine forme aujourd'hui.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/formateur.png" alt="Ahmed Diallo">
-                        <div class="author-info">
-                            <h4>Ahmed Diallo</h4>
-                            <p>Technicien Informatique</p>
-                        </div>
+            <div class="testimonials-content">
+                <h2 class="section-title">Voix de confiance</h2>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Nos patients</h3>
+                <p class="section-subtitle">Histoires vraies de nos patients sur leur cheminement vers la guérison avec la Clinique Priorité Santé</p>
+                
+                <div class="testimonials-slider" id="testimonials-slider">
+                    <div class="loading">
+                        <div class="spinner"></div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>Le suivi de ma grossesse a été parfait. Les sages-femmes et les gynécologues sont à l'écoute et très rassurants. Un grand merci !</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/assistant_voyage.png" alt="Fatoumata Camara">
-                        <div class="author-info">
-                            <h4>Fatoumata Camara</h4>
-                            <p>Designer Graphique</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>Mon fils a été pris en charge rapidement aux urgences pédiatriques. Le personnel est doux et compétent. Je recommande vivement cette clinique.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/reparateur.png" alt="Mamadou Bah">
-                        <div class="author-info">
-                            <h4>Mamadou Bah</h4>
-                            <p>Entrepreneur</p>
-                        </div>
-                    </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn" onclick="slideTestimonials('prev')">‹</button>
+                    <button class="slider-btn" onclick="slideTestimonials('next')">›</button>
                 </div>
             </div>
         </div>
     </section>
- 
-    <!-- Footer -->
-    <footer class="main-footer">
+
+    <!-- Healthcare Partners Section -->
+    <section class="healthcare-partners">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>À Propos</h3>
-                    <p>La Clinique Priorité Santé est votre partenaire de confiance pour des soins de santé de qualité.</p>
+            <h2 class="section-title">Approuvé par les principaux partenaires du secteur de la santé</h2>
+            <p class="section-subtitle">Collaborer avec des partenaires de confiance pour offrir les meilleurs services de santé</p>
+            
+            <!-- Première rangée - 6 logos -->
+            <div class="partners-row">
+                <div class="partner-logo">
+                    <div class="logo-content bpjs-kesehatan">
+                        <div class="logo-icon">⚙️</div>
+                    </div>
                 </div>
-           
-                <div class="footer-section">
-                    <h3>Spécialités</h3>
-                    <ul>
-                        <li><a href="pages/specialites.html#cardiologie">Cardiologie</a></li>
-                        <li><a href="pages/specialites.html#pediatrie">Pédiatrie</a></li>
-                        <li><a href="pages/specialites.html#chirurgie">Chirurgie</a></li>
-                        <li><a href="pages/specialites.html#gynecologie">Gynécologie</a></li>
-                    </ul>
+                
+                <div class="partner-logo">
+                    <div class="logo-content allianz">
+                        <div class="logo-icon">🛡️</div>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Liens Rapides</h3>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="pages/specialites.html">Spécialités</a></li>
-                        <li><a href="pages/medecins.html">Nos Médecins</a></li>
-                        <li><a href="pages/apropos.html">À Propos</a></li>
-                        <li><a href="pages/contact.html">Contact</a></li>
-                    </ul>
+                
+                <div class="partner-logo">
+                    <div class="logo-content avrist">
+                        <div class="logo-icon">📊</div>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Paris, Boulevard / ....</p>
-                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
-                    <p><i class="fas fa-envelope"></i> contact@prioritesante.com</p>
-                    <p><i class="fas fa-life-ring"></i> Urgences 24/7</p>
+                
+                <div class="partner-logo">
+                    <div class="logo-content axa">
+                        <div class="logo-text">AXA</div>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Suivez-nous</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                
+                <div class="partner-logo">
+                    <div class="logo-content bpjs-tk">
+                        <div class="logo-icon">🏛️</div>
                     </div>
                 </div>
                 
             </div>
+
+            <!-- Deuxième rangée - 6 logos -->
+            <div class="partners-row">
+                <div class="partner-logo">
+                    <div class="logo-content cigna">
+                        <div class="logo-icon">🌿</div>
+                        <div class="logo-text">Cigna</div>
+                    </div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div class="logo-content manulife">
+                        <div class="logo-text">Manulife</div>
+                    </div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div class="logo-content prudential">
+                        <div class="logo-text">PRUDENTIAL</div>
+                    </div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div class="logo-content grapiku">
+                        <div class="logo-text">grapiku</div>
+                    </div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div class="logo-content aia">
+                        <div class="logo-icon">🏔️</div>
+                    </div>
+                </div>
+                
+                <div class="partner-logo">
+                    <div class="logo-content bca-life">
+                        <div class="logo-icon">🏦</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Priority Actions Section -->
+    <section class="priority-actions">
+        <div class="container">
+            <h2 class="priority-title">Votre santé, c'est notre priorité</h2>
+            
+            <div class="action-cards-container">
+                <div class="action-card emergency-card" onclick="handleActionClick('emergency')">
+                    <div class="card-content">
+                        <div class="card-icon emergency-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="12" fill="#ff4757"/>
+                                <path d="M16 10v8M16 22v2" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span class="card-text">Appel d'urgence</span>
+                    </div>
+                    <div class="card-arrow">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="action-card doctor-card" onclick="handleActionClick('doctor')">
+                    <div class="card-content">
+                        <div class="card-icon doctor-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="10" r="4" fill="#4a90e2"/>
+                                <path d="M8 24c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#4a90e2" stroke-width="2"/>
+                                <path d="M16 6v4M14 8h4" stroke="white" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <span class="card-text">Trouver un médecin</span>
+                    </div>
+                    <div class="card-arrow">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="action-card appointment-card" onclick="handleActionClick('appointment')">
+                    <div class="card-content">
+                        <div class="card-icon appointment-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect x="6" y="8" width="20" height="16" rx="2" stroke="#4a90e2" stroke-width="2"/>
+                                <path d="M12 4v8M20 4v8" stroke="#4a90e2" stroke-width="2"/>
+                                <rect x="10" y="14" width="2" height="2" fill="#4a90e2"/>
+                                <rect x="15" y="14" width="2" height="2" fill="#4a90e2"/>
+                                <rect x="20" y="14" width="2" height="2" fill="#4a90e2"/>
+                                <rect x="10" y="18" width="2" height="2" fill="#4a90e2"/>
+                                <rect x="15" y="18" width="2" height="2" fill="#4a90e2"/>
+                            </svg>
+                        </div>
+                        <span class="card-text">Prendre rendez-vous</span>
+                    </div>
+                    <div class="card-arrow">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-comprehensive">
+        <div class="container">
+            <!-- Footer Main Content -->
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><img src="images/logo-01.svg" alt="" srcset="" style="width: 200px; height: 90px;"></span>
+                   
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link twitter">✕</a>
+                        <a href="#" class="social-link facebook">f</a>
+                        <a href="#" class="social-link linkedin">in</a>
+                        <a href="#" class="social-link youtube">▶</a>
+                        <a href="#" class="social-link instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Entreprise</h4>
+                        <ul>
+                            <li><a href="#careers">Carrières</a></li>
+                            <li><a href="#contact">Contactez-nous</a></li>
+                            <li><a href="#news">Actualités et événements</a></li>
+                            <li><a href="#reports">Rapports biomédicaux</a></li>
+                            <li><a href="#awards">Récompenses</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Spécialité</h4>
+                        <ul>
+                            <li><a href="#cardiac">Soins cardiaques</a></li>
+                            <li><a href="#dentistry">Dentisterie</a></li>
+                            <li><a href="#gastro">Gastrosciences</a></li>
+                            <li><a href="#neuro">Neuroscience</a></li>
+                            <li><a href="#ortho">Orthopédie</a></li>
+                            <li><a href="#liver">Soins du foie</a></li>
+                            <li><a href="#renal">Soins rénaux</a></li>
+                            <li><a href="#gyneco">Gynécologie</a></li>
+                            <li><a href="#pediatric">Soins pédiatriques</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Services médicaux</h4>
+                        <ul>
+                            <li><a href="#find-doctor">Trouver un médecin</a></li>
+                            <li><a href="#book-appointment">Prendre rendez-vous pour l'hôpital</a></li>
+                            <li><a href="#home-care">Soins à domicile</a></li>
+                            <li><a href="#emergency">Ligne d'assistance d'urgence</a></li>
+                            <li><a href="#insurance">Assurance et facturation</a></li>
+                            <li><a href="#ambulance">Ambulance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>À propos de la Clinique Priorité Santé</h4>
+                        <ul>
+                            <li><a href="#history">Histoire</a></li>
+                            <li><a href="#vision">Visi & Mission</a></li>
+                            <li><a href="#home-care">Soins à domicile</a></li>
+                            <li><a href="#leader">Notre chef</a></li>
+                            <li><a href="#sustainability">Durabilité</a></li>
+                        </ul>
+                    </div>
+        
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p>&copy; 2024 Clinique Priorité Santé. Tous droits réservés.</p>
+                <div class="footer-bottom-left">
+                    <p>Designed par VulDesign <a href="#grapiku">Hakim</a></p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>&copy; 2025 Clinique Priorité Santé. Tout droits reservés.</p>
+                    <a href="#privacy">politique de confidentialité</a>
+                    <a href="#terms">Conditions d'utilisation</a>
+                </div>
             </div>
         </div>
     </footer>
-
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
-</html> 
+</html>
