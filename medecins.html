@@ -4,112 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos Médecins - Clinique Priorité Santé</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    <style>
+        .page-header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+        
+        .doctor-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px var(--shadow-medium);
+        }
+        
+        .doctor-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+        }
+        
+        .doctor-info {
+            padding: 2rem;
+        }
+        
+        .doctor-name {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .doctor-specialty {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .doctor-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .doctor-contact {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .search-doctors {
+            background: var(--light-bg);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius-small);
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius-small);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .search-btn:hover {
+            background: var(--primary-dark);
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Header (identique aux autres pages) -->
+    <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/logo-01.svg" alt="Logo Clinique Priorité Santé">
-            </a>
+            <div class="logo"><a href="index.html"><img src="static/images/logo-01.svg" alt="Clinique Priorité Santé"></a></div>
             <nav>
                 <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="medecins.html" class="active">Médecins</a></li>
+                    <li><a href="clinique.html">Clinique</a></li>
                     <li><a href="index.html#specialties">Spécialités</a></li>
-                    <li><a href="cliniques.html">Cliniques</a></li>
-                    <li><a href="medecins.html">Médecins</a></li>
-                    <li><a href="#">À Propos</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-            <a href="#" class="emergency-btn">
-                <img src="images/emergency_call-02.svg" alt="Urgence">
-                <span>Appel Urgent</span>
+            <a href="contact.html#emergency" class="emergency-btn">
+                <img src="static/images/emergency_call-02.svg" alt=""> Appel Urgent
             </a>
-            <!-- Menu Hamburger pour mobile -->
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </header>
 
-    <main>
-        <!-- Section Titre de la page -->
-        <section class="page-header">
-            <div class="container">
-                <h1>Nos Médecins</h1>
-                <p>Rencontrez notre équipe d'experts dévoués à votre bien-être.</p>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nos Médecins Experts</h1>
+            <p>Une équipe de professionnels dévoués à votre santé et bien-être</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-doctors">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Trouvez votre médecin</h2>
+            <div class="search-form">
+                <input type="text" class="search-input" placeholder="Rechercher par nom ou spécialité..." id="doctor-search">
+                <select class="search-input" id="specialty-filter">
+                    <option value="">Toutes les spécialités</option>
+                    <option value="cardiologie">Cardiologie</option>
+                    <option value="neurologie">Neurologie</option>
+                    <option value="pediatrie">Pédiatrie</option>
+                    <option value="gynecologie">Gynécologie</option>
+                    <option value="orthopédie">Orthopédie</option>
+                    <option value="dermatologie">Dermatologie</option>
+                </select>
+                <button class="search-btn" onclick="searchDoctors()">🔍 Rechercher</button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section de recherche et liste des médecins -->
-        <section class="doctors-list-section">
-            <div class="container">
-                <!-- Barre de recherche et filtres -->
-                <div class="clinics-toolbar"> <!-- Réutilisation de la classe .clinics-toolbar -->
-                    <input type="text" class="search-input" placeholder="Rechercher par nom, spécialité...">
-                    <select class="filter-select">
-                        <option value="">Trier par</option>
-                        <option value="name">Nom (A-Z)</option>
-                        <option value="specialty">Spécialité</option>
-                    </select>
-                </div>
-
-                <!-- Grille des médecins -->
-                <div class="doctors-grid">
-                    <!-- Carte de médecin (Exemple 1) -->
-                    <div class="doctor-card">
-                        <img src="images/doctor1.jpg" alt="Photo du Dr. Alain Lavoie" class="doctor-card-img">
-                        <div class="doctor-card-body">
-                            <span class="doctor-specialty">Cardiologue</span>
-                            <h3>Dr. Alain Lavoie</h3>
-                            <p class="doctor-clinic">Clinique du Centre-Ville</p>
-                            <a href="#" class="btn btn-primary">Voir le profil</a>
-                        </div>
-                    </div>
-
-                    <!-- Carte de médecin (Exemple 2) -->
-                    <div class="doctor-card">
-                        <img src="images/doctor2.jpg" alt="Photo du Dr. Sophie Martin" class="doctor-card-img">
-                        <div class="doctor-card-body">
-                            <span class="doctor-specialty">Pédiatre</span>
-                            <h3>Dr. Sophie Martin</h3>
-                            <p class="doctor-clinic">Clinique de la Rive-Sud</p>
-                            <a href="#" class="btn btn-primary">Voir le profil</a>
-                        </div>
-                    </div>
-
-                    <!-- Carte de médecin (Exemple 3) -->
-                    <div class="doctor-card">
-                        <img src="images/doctor3.jpg" alt="Photo du Dr. Jean Tremblay" class="doctor-card-img">
-                        <div class="doctor-card-body">
-                            <span class="doctor-specialty">Dermatologue</span>
-                            <h3>Dr. Jean Tremblay</h3>
-                            <p class="doctor-clinic">Clinique du Plateau</p>
-                            <a href="#" class="btn btn-primary">Voir le profil</a>
-                        </div>
-                    </div>
-
-                    <!-- Ajoutez plus de cartes de médecins ici -->
-                </div>
+    <!-- Doctors Grid -->
+    <section class="doctors-section">
+        <div class="container">
+            <div class="doctors-grid" id="doctors-grid">
+                <!-- Les médecins seront chargés ici par JavaScript -->
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer (identique aux autres pages) -->
+    <!-- Footer -->
     <footer class="footer-comprehensive">
         <div class="container">
-            <!-- Footer Main Content -->
             <div class="footer-main">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <span class="logo-icon"><img src="images/logo-01.svg" alt="Logo Clinique Priorité Santé" style="width: 200px; height: 90px;"></span>
-                   
+                        <span class="logo-icon"><img src="static/images/logo-01.svg" alt="" style="width: 200px; height: 90px;"></span>
                     </div>
-                    
                     <div class="social-links">
                         <a href="#" class="social-link twitter">✕</a>
                         <a href="#" class="social-link facebook">f</a>
@@ -121,63 +205,52 @@
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>Entreprise</h4>
+                        <h4>Navigation</h4>
                         <ul>
-                            <li><a href="#">Carrières</a></li>
-                            <li><a href="#">Contactez-nous</a></li>
-                            <li><a href="#">Actualités et événements</a></li>
-                            <li><a href="#">Rapports biomédicaux</a></li>
-                            <li><a href="#">Récompenses</a></li>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="medecins.html">Médecins</a></li>
+                            <li><a href="clinique.html">Clinique</a></li>
+                            <li><a href="apropos.html">À propos</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4>Spécialité</h4>
+                        <h4>Services</h4>
                         <ul>
-                            <li><a href="#">Soins cardiaques</a></li>
-                            <li><a href="#">Dentisterie</a></li>
-                            <li><a href="#">Gastrosciences</a></li>
-                            <li><a href="#">Neuroscience</a></li>
-                            <li><a href="#">Orthopédie</a></li>
-                            <li><a href="#">Soins du foie</a></li>
+                            <li><a href="#cardiac">Soins cardiaques</a></li>
+                            <li><a href="#dentistry">Dentisterie</a></li>
+                            <li><a href="#neuro">Neuroscience</a></li>
+                            <li><a href="#ortho">Orthopédie</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4>Services médicaux</h4>
+                        <h4>Contact</h4>
                         <ul>
-                            <li><a href="medecins.html">Trouver un médecin</a></li>
-                            <li><a href="#">Prendre rendez-vous</a></li>
-                            <li><a href="#">Soins à domicile</a></li>
-                            <li><a href="#">Ligne d'assistance d'urgence</a></li>
-                            <li><a href="#">Assurance et facturation</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>À propos</h4>
-                        <ul>
-                            <li><a href="#">Histoire</a></li>
-                            <li><a href="#">Vision & Mission</a></li>
-                            <li><a href="#">Notre direction</a></li>
+                            <li><a href="contact.html">Nous contacter</a></li>
+                            <li><a href="contact.html#emergency">Urgences</a></li>
+                            <li><a href="contact.html#appointment">Rendez-vous</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             
-            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="footer-bottom-left">
-                    <p>Designed par VulDesign</p>
+                    <p>Designed par VulDesign <a href="#grapiku">Hakim</a></p>
                 </div>
                 <div class="footer-bottom-right">
-                    <p>&copy; 2025 Clinique Priorité Santé. Tout droits reservés.</p>
-                    <a href="#">politique de confidentialité</a>
-                    <a href="#">Conditions d'utilisation</a>
+                    <p>&copy; 2025 Clinique Priorité Santé. Tous droits réservés.</p>
+                    <a href="#privacy">Politique de confidentialité</a>
+                    <a href="#terms">Conditions d'utilisation</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="static/js/data.js"></script>
+    <script src="static/js/navigation.js"></script>
+    <script src="static/js/doctors.js"></script>
 </body>
 </html>

@@ -14,7 +14,36 @@ document.addEventListener('DOMContentLoaded', function () {
     generateAlphabet();
     initScrollAnimations();
     initActionButtons();
+    checkHeroImage();
 });
+
+// Vérifier si l'image hero se charge correctement
+function checkHeroImage() {
+    const heroSection = document.querySelector('.hero');
+    if (!heroSection) return;
+    
+    const img = new Image();
+    img.onload = function() {
+        console.log('✅ Image hero chargée avec succès');
+        heroSection.classList.add('image-loaded');
+    };
+    
+    img.onerror = function() {
+        console.warn('⚠️ Impossible de charger l\'image hero, utilisation du fallback');
+        heroSection.classList.add('no-image');
+    };
+    
+    // Tester le chargement de l'image
+    img.src = 'static/images/hero.png';
+    
+    // Timeout de sécurité
+    setTimeout(() => {
+        if (!heroSection.classList.contains('image-loaded') && !heroSection.classList.contains('no-image')) {
+            console.warn('⏰ Timeout pour le chargement de l\'image hero');
+            heroSection.classList.add('no-image');
+        }
+    }, 3000);
+}
 
 // Initialiser les boutons d'action
 function initActionButtons() {

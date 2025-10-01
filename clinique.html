@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Clinique - Clinique Priorité Santé</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+        
+        .facility-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px var(--shadow-medium);
+        }
+        
+        .facility-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+        }
+        
+        .facility-content {
+            padding: 2rem;
+        }
+        
+        .facility-title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .facility-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .services-section {
+            background: var(--light-bg);
+            padding: 5rem 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            transition: var(--transition);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-medium);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .service-title {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .equipment-section {
+            padding: 5rem 0;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .equipment-card {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .equipment-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: var(--transition);
+        }
+        
+        .equipment-card:hover::before {
+            transform: scale(1);
+        }
+        
+        .equipment-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .equipment-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .equipment-description {
+            opacity: 0.9;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .location-section {
+            background: var(--light-bg);
+            padding: 5rem 0;
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .location-info {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-light);
+        }
+        
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: var(--border-radius-small);
+        }
+        
+        .location-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            height: 400px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html"><img src="static/images/logo-01.svg" alt="Clinique Priorité Santé"></a></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="medecins.html">Médecins</a></li>
+                    <li><a href="clinique.html" class="active">Clinique</a></li>
+                    <li><a href="index.html#specialties">Spécialités</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html#emergency" class="emergency-btn">
+                <img src="static/images/emergency_call-02.svg" alt=""> Appel Urgent
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Notre Clinique</h1>
+            <p>Des installations modernes et un environnement de soins exceptionnel</p>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities-section">
+        <div class="container">
+            <h2 class="section-title">Nos Installations</h2>
+            <p class="section-subtitle">Des espaces conçus pour votre confort et votre guérison</p>
+            
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-image">🏥</div>
+                    <div class="facility-content">
+                        <h3 class="facility-title">Urgences 24h/24</h3>
+                        <p class="facility-description">Service d'urgence moderne équipé pour traiter tous types d'urgences médicales avec une équipe disponible 24h/24 et 7j/7.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-image">🔬</div>
+                    <div class="facility-content">
+                        <h3 class="facility-title">Laboratoire d'Analyses</h3>
+                        <p class="facility-description">Laboratoire équipé des dernières technologies pour des analyses rapides et précises. Résultats disponibles en quelques heures.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-image">🏥</div>
+                    <div class="facility-content">
+                        <h3 class="facility-title">Blocs Opératoires</h3>
+                        <p class="facility-description">Salles d'opération ultramodernes avec équipements de pointe pour chirurgies générales et spécialisées.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-image">🛏️</div>
+                    <div class="facility-content">
+                        <h3 class="facility-title">Chambres d'Hospitalisation</h3>
+                        <p class="facility-description">Chambres confortables et climatisées avec équipements médicaux modernes pour un séjour agréable.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-image">👶</div>
+                    <div class="facility-content">
+                        <h3 class="facility-title">Maternité</h3>
+                        <p class="facility-description">Service de maternité complet avec suivi prénatal, salles d'accouchement modernes et soins néonatals.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-image">💊</div>
+                    <div class="facility-content">
+                        <h3 class="facility-title">Pharmacie</h3>
+                        <p class="facility-description">Pharmacie interne avec large gamme de médicaments et conseils pharmaceutiques professionnels.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Nos Services</h2>
+            <p class="section-subtitle">Une gamme complète de services médicaux</p>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <span class="service-icon">🩺</span>
+                    <h3 class="service-title">Consultations</h3>
+                    <p>Consultations médicales générales et spécialisées</p>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-icon">🔬</span>
+                    <h3 class="service-title">Analyses</h3>
+                    <p>Analyses biologiques et examens de laboratoire</p>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-icon">📱</span>
+                    <h3 class="service-title">Télémédecine</h3>
+                    <p>Consultations à distance et suivi médical</p>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-icon">🚑</span>
+                    <h3 class="service-title">Ambulance</h3>
+                    <p>Service d'ambulance et transport médical</p>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-icon">💉</span>
+                    <h3 class="service-title">Vaccinations</h3>
+                    <p>Programme complet de vaccination</p>
+                </div>
+                
+                <div class="service-item">
+                    <span class="service-icon">🏠</span>
+                    <h3 class="service-title">Soins à Domicile</h3>
+                    <p>Soins médicaux et infirmiers à domicile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="equipment-section">
+        <div class="container">
+            <h2 class="section-title">Équipements Médicaux</h2>
+            <p class="section-subtitle">Technologies de pointe pour des soins de qualité</p>
+            
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-icon">🔬</div>
+                    <h3 class="equipment-title">Scanner CT</h3>
+                    <p class="equipment-description">Scanner haute résolution pour imagerie médicale précise et diagnostic rapide.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">🧲</div>
+                    <h3 class="equipment-title">IRM</h3>
+                    <p class="equipment-description">Imagerie par résonance magnétique pour examens détaillés sans radiation.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">📡</div>
+                    <h3 class="equipment-title">Échographie 4D</h3>
+                    <p class="equipment-description">Échographe dernière génération pour suivi de grossesse et examens.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">⚡</div>
+                    <h3 class="equipment-title">Défibrillateurs</h3>
+                    <p class="equipment-description">Équipements de réanimation modernes pour urgences cardiaques.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">🔬</div>
+                    <h3 class="equipment-title">Microscopes</h3>
+                    <p class="equipment-description">Microscopes haute précision pour analyses pathologiques.</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">💻</div>
+                    <h3 class="equipment-title">Système Digital</h3>
+                    <p class="equipment-description">Dossiers médicaux électroniques et gestion digitale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section">
+        <div class="container">
+            <h2 class="section-title">Notre Localisation</h2>
+            <p class="section-subtitle">Facilement accessible au cœur de Conakry</p>
+            
+            <div class="location-content">
+                <div class="location-info">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 2rem;">Informations Pratiques</h3>
+                    
+                    <div class="location-item">
+                        <span class="location-icon">📍</span>
+                        <div>
+                            <strong>Adresse</strong><br>
+                            Avenue de la République, Kaloum<br>
+                            Conakry, Guinée
+                        </div>
+                    </div>
+                    
+                    <div class="location-item">
+                        <span class="location-icon">📞</span>
+                        <div>
+                            <strong>Téléphone</strong><br>
+                            +224 123 456 789<br>
+                            +224 987 654 321
+                        </div>
+                    </div>
+                    
+                    <div class="location-item">
+                        <span class="location-icon">🕒</span>
+                        <div>
+                            <strong>Horaires</strong><br>
+                            Lun-Ven: 7h00 - 20h00<br>
+                            Sam-Dim: 8h00 - 18h00<br>
+                            <em>Urgences 24h/24</em>
+                        </div>
+                    </div>
+                    
+                    <div class="location-item">
+                        <span class="location-icon">🚗</span>
+                        <div>
+                            <strong>Parking</strong><br>
+                            Parking gratuit disponible<br>
+                            Accès handicapés
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-placeholder">
+                    🗺️<br>
+                    <div style="font-size: 1rem; margin-top: 1rem;">
+                        Carte interactive<br>
+                        (À intégrer avec Google Maps)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-comprehensive">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><img src="static/images/logo-01.svg" alt="" style="width: 200px; height: 90px;"></span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link twitter">✕</a>
+                        <a href="#" class="social-link facebook">f</a>
+                        <a href="#" class="social-link linkedin">in</a>
+                        <a href="#" class="social-link youtube">▶</a>
+                        <a href="#" class="social-link instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="medecins.html">Médecins</a></li>
+                            <li><a href="clinique.html">Clinique</a></li>
+                            <li><a href="apropos.html">À propos</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#cardiac">Soins cardiaques</a></li>
+                            <li><a href="#dentistry">Dentisterie</a></li>
+                            <li><a href="#neuro">Neuroscience</a></li>
+                            <li><a href="#ortho">Orthopédie</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Nous contacter</a></li>
+                            <li><a href="contact.html#emergency">Urgences</a></li>
+                            <li><a href="contact.html#appointment">Rendez-vous</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>Designed par VulDesign <a href="#grapiku">Hakim</a></p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>&copy; 2025 Clinique Priorité Santé. Tous droits réservés.</p>
+                    <a href="#privacy">Politique de confidentialité</a>
+                    <a href="#terms">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation des cartes au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observer tous les éléments animés
+            document.querySelectorAll('.facility-card, .service-item, .equipment-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        
+        // Styles pour les animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .facility-card, .service-item, .equipment-card {
+                opacity: 0;
+            }
+            
+            .nav-menu a.active {
+                color: var(--accent-color) !important;
+                font-weight: 600;
+            }
+            
+            .nav-menu a.active::after {
+                width: 100%;
+                background: var(--accent-color);
+            }
+            
+            @media (max-width: 768px) {
+                .location-content {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+                
+                .facilities-grid, .equipment-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .services-grid {
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

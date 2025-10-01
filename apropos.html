@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Clinique Priorité Santé</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .story-section {
+            padding: 5rem 0;
+        }
+        
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        
+        .story-image {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            height: 400px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+        }
+        
+        .mission-vision {
+            background: var(--light-bg);
+            padding: 5rem 0;
+        }
+        
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .mission-card, .vision-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-color);
+        }
+        
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-color);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .card-text {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .values-section {
+            padding: 5rem 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover::before {
+            transform: scale(1);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-description {
+            opacity: 0.9;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .team-section {
+            background: var(--light-bg);
+            padding: 5rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            overflow: hidden;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px var(--shadow-medium);
+        }
+        
+        .team-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+        }
+        
+        .team-info {
+            padding: 2rem;
+        }
+        
+        .team-name {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .team-role {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .team-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .achievements-section {
+            padding: 5rem 0;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .achievement-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px var(--shadow-light);
+            transition: var(--transition);
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--shadow-medium);
+        }
+        
+        .achievement-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .achievement-label {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .achievement-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html"><img src="static/images/logo-01.svg" alt="Clinique Priorité Santé"></a></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="medecins.html">Médecins</a></li>
+                    <li><a href="clinique.html">Clinique</a></li>
+                    <li><a href="index.html#specialties">Spécialités</a></li>
+                    <li><a href="apropos.html" class="active">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html#emergency" class="emergency-btn">
+                <img src="static/images/emergency_call-02.svg" alt=""> Appel Urgent
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>À Propos de Nous</h1>
+            <p>Découvrez notre histoire, notre mission et nos valeurs</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <h2 class="section-title">Notre Histoire</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>Fondée en 1995, la <strong>Clinique Priorité Santé</strong> est née d'une vision simple mais ambitieuse : offrir des soins de santé de qualité internationale au cœur de la Guinée.</p>
+                    
+                    <p>Depuis plus de 30 ans, nous avons grandi pour devenir l'un des établissements de santé les plus respectés du pays, tout en conservant notre engagement envers l'excellence médicale et la compassion humaine.</p>
+                    
+                    <p>Notre parcours a été marqué par des innovations constantes, l'acquisition d'équipements de pointe et surtout, la formation continue de nos équipes médicales aux dernières avancées de la médecine moderne.</p>
+                    
+                    <p>Aujourd'hui, nous sommes fiers de servir des milliers de patients chaque année, en offrant un environnement où <em>"la guérison se sent comme à la maison"</em>.</p>
+                </div>
+                <div class="story-image">
+                    🏥
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <h2 class="section-title">Mission & Vision</h2>
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">Notre Mission</h3>
+                    <p class="card-text">Fournir des soins de santé exceptionnels, accessibles et centrés sur le patient, en combinant expertise médicale, technologie de pointe et approche humaine pour améliorer la qualité de vie de nos communautés.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <span class="card-icon">🌟</span>
+                    <h3 class="card-title">Notre Vision</h3>
+                    <p class="card-text">Être le leader régional en matière de soins de santé, reconnu pour notre excellence clinique, notre innovation et notre engagement envers le bien-être de chaque patient que nous servons.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Nos Valeurs</h2>
+            <p class="section-subtitle">Les principes qui guident chacune de nos actions</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <span class="value-icon">❤️</span>
+                    <h3 class="value-title">Compassion</h3>
+                    <p class="value-description">Nous traitons chaque patient avec empathie, respect et dignité, en comprenant que derrière chaque cas médical se trouve une personne unique.</p>
+                </div>
+                
+                <div class="value-card">
+                    <span class="value-icon">⭐</span>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">Nous nous efforçons constamment d'atteindre les plus hauts standards de qualité dans tous nos services et traitements médicaux.</p>
+                </div>
+                
+                <div class="value-card">
+                    <span class="value-icon">🤝</span>
+                    <h3 class="value-title">Intégrité</h3>
+                    <p class="value-description">Nous agissons avec honnêteté, transparence et éthique dans toutes nos interactions avec les patients, familles et collègues.</p>
+                </div>
+                
+                <div class="value-card">
+                    <span class="value-icon">🚀</span>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">Nous adoptons les dernières technologies et méthodes médicales pour offrir les meilleurs soins possibles à nos patients.</p>
+                </div>
+                
+                <div class="value-card">
+                    <span class="value-icon">🌍</span>
+                    <h3 class="value-title">Accessibilité</h3>
+                    <p class="value-description">Nous nous engageons à rendre les soins de santé de qualité accessibles à tous, indépendamment du statut social ou économique.</p>
+                </div>
+                
+                <div class="value-card">
+                    <span class="value-icon">👥</span>
+                    <h3 class="value-title">Collaboration</h3>
+                    <p class="value-description">Nous travaillons en équipe multidisciplinaire pour offrir une approche holistique et coordonnée des soins de santé.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Notre Direction</h2>
+            <p class="section-subtitle">Une équipe de direction expérimentée et dévouée</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">👨‍💼</div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Mamadou Sylla</h3>
+                        <div class="team-role">Directeur Général</div>
+                        <p class="team-description">Médecin et gestionnaire avec 25 ans d'expérience dans le secteur de la santé en Afrique de l'Ouest.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">👩‍💼</div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Aissatou Barry</h3>
+                        <div class="team-role">Directrice Médicale</div>
+                        <p class="team-description">Spécialiste en médecine interne, responsable de la qualité des soins et de la formation médicale continue.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">👨‍💼</div>
+                    <div class="team-info">
+                        <h3 class="team-name">M. Thierno Baldé</h3>
+                        <div class="team-role">Directeur Administratif</div>
+                        <p class="team-description">Expert en gestion hospitalière et développement des systèmes de santé, MBA en administration des affaires.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">👩‍💼</div>
+                    <div class="team-info">
+                        <h3 class="team-name">Mme. Kadiatou Diallo</h3>
+                        <div class="team-role">Directrice des Soins</div>
+                        <p class="team-description">Infirmière en chef avec expertise en management des équipes soignantes et amélioration continue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section">
+        <div class="container">
+            <h2 class="section-title">Nos Réalisations</h2>
+            <p class="section-subtitle">Des chiffres qui témoignent de notre engagement</p>
+            
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <div class="achievement-number">30+</div>
+                    <div class="achievement-label">Années d'Excellence</div>
+                    <div class="achievement-description">Trois décennies au service de la santé</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-number">50,000+</div>
+                    <div class="achievement-label">Patients Traités</div>
+                    <div class="achievement-description">Chaque année</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-number">200+</div>
+                    <div class="achievement-label">Professionnels</div>
+                    <div class="achievement-description">Médecins, infirmiers et personnel</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-number">15</div>
+                    <div class="achievement-label">Spécialités</div>
+                    <div class="achievement-description">Médicales et chirurgicales</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-number">98%</div>
+                    <div class="achievement-label">Satisfaction</div>
+                    <div class="achievement-description">Taux de satisfaction patient</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-number">24/7</div>
+                    <div class="achievement-label">Urgences</div>
+                    <div class="achievement-description">Service d'urgence permanent</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-comprehensive">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><img src="static/images/logo-01.svg" alt="" style="width: 200px; height: 90px;"></span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link twitter">✕</a>
+                        <a href="#" class="social-link facebook">f</a>
+                        <a href="#" class="social-link linkedin">in</a>
+                        <a href="#" class="social-link youtube">▶</a>
+                        <a href="#" class="social-link instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="medecins.html">Médecins</a></li>
+                            <li><a href="clinique.html">Clinique</a></li>
+                            <li><a href="apropos.html">À propos</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#cardiac">Soins cardiaques</a></li>
+                            <li><a href="#dentistry">Dentisterie</a></li>
+                            <li><a href="#neuro">Neuroscience</a></li>
+                            <li><a href="#ortho">Orthopédie</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Nous contacter</a></li>
+                            <li><a href="contact.html#emergency">Urgences</a></li>
+                            <li><a href="contact.html#appointment">Rendez-vous</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>Designed par VulDesign <a href="#grapiku">Hakim</a></p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>&copy; 2025 Clinique Priorité Santé. Tous droits réservés.</p>
+                    <a href="#privacy">Politique de confidentialité</a>
+                    <a href="#terms">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation des éléments au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observer tous les éléments animés
+            document.querySelectorAll('.value-card, .team-card, .achievement-item, .mission-card, .vision-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        
+        // Styles pour les animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .value-card, .team-card, .achievement-item, .mission-card, .vision-card {
+                opacity: 0;
+            }
+            
+            .nav-menu a.active {
+                color: var(--accent-color) !important;
+                font-weight: 600;
+            }
+            
+            .nav-menu a.active::after {
+                width: 100%;
+                background: var(--accent-color);
+            }
+            
+            @media (max-width: 768px) {
+                .story-content, .mission-vision-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+                
+                .values-grid, .team-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .achievements-grid {
+                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

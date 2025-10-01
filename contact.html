@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Clinique Priorité Santé</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--success-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .contact-main {
+            padding: 5rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 50px var(--shadow-light);
+            border: 1px solid var(--border-light);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius-small);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .form-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .info-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--shadow-medium);
+        }
+        
+        .info-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .info-title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .info-content {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .info-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .info-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .emergency-section {
+            background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .emergency-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .emergency-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .emergency-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .emergency-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 2rem 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .emergency-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .emergency-btn-action {
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .emergency-btn-action:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+        }
+        
+        .appointment-section {
+            background: var(--light-bg);
+            padding: 5rem 0;
+        }
+        
+        .appointment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .appointment-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .appointment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px var(--shadow-medium);
+        }
+        
+        .appointment-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .appointment-title {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .appointment-description {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .appointment-btn {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .appointment-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+        
+        .hours-section {
+            padding: 4rem 0;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .hours-card {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .hours-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .hours-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .hours-list li {
+            padding: 0.3rem 0;
+            opacity: 0.9;
+        }
+        
+        .form-success {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: var(--border-radius-small);
+            margin-bottom: 1rem;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+        
+        .form-error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: var(--border-radius-small);
+            margin-bottom: 1rem;
+            border: 1px solid #f5c6cb;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html"><img src="static/images/logo-01.svg" alt="Clinique Priorité Santé"></a></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="medecins.html">Médecins</a></li>
+                    <li><a href="clinique.html">Clinique</a></li>
+                    <li><a href="index.html#specialties">Spécialités</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#emergency" class="emergency-btn">
+                <img src="static/images/emergency_call-02.svg" alt=""> Appel Urgent
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contactez-Nous</h1>
+            <p>Nous sommes là pour vous aider et répondre à toutes vos questions</p>
+        </div>
+    </section>
+
+    <!-- Emergency Section -->
+    <section class="emergency-section" id="emergency">
+        <div class="container">
+            <div class="emergency-content">
+                <h2 class="emergency-title">🚨 Urgences Médicales</h2>
+                <p class="emergency-subtitle">En cas d'urgence médicale, contactez-nous immédiatement</p>
+                <div class="emergency-number">+224 123 456 789</div>
+                <div class="emergency-buttons">
+                    <a href="tel:+224123456789" class="emergency-btn-action">📞 Appeler Maintenant</a>
+                    <a href="#" class="emergency-btn-action">🚑 Demander une Ambulance</a>
+                </div>
+                <p style="margin-top: 2rem; opacity: 0.8;">Service d'urgence disponible 24h/24 et 7j/7</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Main Section -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2 style="color: var(--secondary-color); margin-bottom: 2rem;">Envoyez-nous un Message</h2>
+                    
+                    <div class="form-success" id="form-success">
+                        ✅ Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+                    </div>
+                    
+                    <div class="form-error" id="form-error">
+                        ❌ Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.
+                    </div>
+                    
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Nom Complet *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Sujet *</label>
+                            <select id="subject" name="subject" class="form-select" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="appointment">Demande de rendez-vous</option>
+                                <option value="information">Demande d'information</option>
+                                <option value="complaint">Réclamation</option>
+                                <option value="emergency">Urgence</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" required placeholder="Décrivez votre demande en détail..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">📧 Envoyer le Message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3 class="info-title">Adresse</h3>
+                        <div class="info-content">
+                            Avenue de la République, Kaloum<br>
+                            BP 1234, Conakry<br>
+                            République de Guinée
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h3 class="info-title">Téléphone</h3>
+                        <div class="info-content">
+                            <strong>Standard:</strong> <a href="tel:+224123456789">+224 123 456 789</a><br>
+                            <strong>Urgences:</strong> <a href="tel:+224987654321">+224 987 654 321</a><br>
+                            <strong>Rendez-vous:</strong> <a href="tel:+224555666777">+224 555 666 777</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">✉️</div>
+                        <h3 class="info-title">Email</h3>
+                        <div class="info-content">
+                            <strong>Général:</strong> <a href="mailto:info@prioritesante.gn">info@prioritesante.gn</a><br>
+                            <strong>Rendez-vous:</strong> <a href="mailto:rdv@prioritesante.gn">rdv@prioritesante.gn</a><br>
+                            <strong>Urgences:</strong> <a href="mailto:urgence@prioritesante.gn">urgence@prioritesante.gn</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">🌐</div>
+                        <h3 class="info-title">Réseaux Sociaux</h3>
+                        <div class="info-content">
+                            Suivez-nous pour les dernières actualités:<br>
+                            <a href="#">Facebook</a> • <a href="#">Twitter</a> • <a href="#">LinkedIn</a> • <a href="#">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment-section" id="appointment">
+        <div class="container">
+            <h2 class="section-title">Prendre Rendez-vous</h2>
+            <p class="section-subtitle">Choisissez la méthode qui vous convient le mieux</p>
+            
+            <div class="appointment-grid">
+                <div class="appointment-card">
+                    <div class="appointment-icon">📞</div>
+                    <h3 class="appointment-title">Par Téléphone</h3>
+                    <p class="appointment-description">Appelez notre service de rendez-vous du lundi au vendredi de 8h à 17h.</p>
+                    <a href="tel:+224555666777" class="appointment-btn">Appeler Maintenant</a>
+                </div>
+                
+                <div class="appointment-card">
+                    <div class="appointment-icon">💻</div>
+                    <h3 class="appointment-title">En Ligne</h3>
+                    <p class="appointment-description">Prenez rendez-vous en ligne 24h/24 via notre plateforme sécurisée.</p>
+                    <a href="#" class="appointment-btn">Réserver en Ligne</a>
+                </div>
+                
+                <div class="appointment-card">
+                    <div class="appointment-icon">🏥</div>
+                    <h3 class="appointment-title">Sur Place</h3>
+                    <p class="appointment-description">Rendez-vous directement à l'accueil de la clinique pour prendre rendez-vous.</p>
+                    <a href="#" class="appointment-btn">Voir les Horaires</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section class="hours-section">
+        <div class="container">
+            <h2 class="section-title">Horaires d'Ouverture</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3 class="hours-title">🏥 Consultations</h3>
+                    <ul class="hours-list">
+                        <li>Lundi - Vendredi: 7h00 - 20h00</li>
+                        <li>Samedi: 8h00 - 18h00</li>
+                        <li>Dimanche: 9h00 - 16h00</li>
+                    </ul>
+                </div>
+                
+                <div class="hours-card">
+                    <h3 class="hours-title">🚨 Urgences</h3>
+                    <ul class="hours-list">
+                        <li>24 heures sur 24</li>
+                        <li>7 jours sur 7</li>
+                        <li>365 jours par an</li>
+                    </ul>
+                </div>
+                
+                <div class="hours-card">
+                    <h3 class="hours-title">🔬 Laboratoire</h3>
+                    <ul class="hours-list">
+                        <li>Lundi - Vendredi: 6h00 - 19h00</li>
+                        <li>Samedi: 7h00 - 17h00</li>
+                        <li>Dimanche: 8h00 - 14h00</li>
+                    </ul>
+                </div>
+                
+                <div class="hours-card">
+                    <h3 class="hours-title">💊 Pharmacie</h3>
+                    <ul class="hours-list">
+                        <li>Lundi - Vendredi: 7h30 - 19h30</li>
+                        <li>Samedi: 8h00 - 18h00</li>
+                        <li>Dimanche: 9h00 - 15h00</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-comprehensive">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><img src="static/images/logo-01.svg" alt="" style="width: 200px; height: 90px;"></span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link twitter">✕</a>
+                        <a href="#" class="social-link facebook">f</a>
+                        <a href="#" class="social-link linkedin">in</a>
+                        <a href="#" class="social-link youtube">▶</a>
+                        <a href="#" class="social-link instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="medecins.html">Médecins</a></li>
+                            <li><a href="clinique.html">Clinique</a></li>
+                            <li><a href="apropos.html">À propos</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#cardiac">Soins cardiaques</a></li>
+                            <li><a href="#dentistry">Dentisterie</a></li>
+                            <li><a href="#neuro">Neuroscience</a></li>
+                            <li><a href="#ortho">Orthopédie</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Nous contacter</a></li>
+                            <li><a href="contact.html#emergency">Urgences</a></li>
+                            <li><a href="contact.html#appointment">Rendez-vous</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>Designed par VulDesign <a href="#grapiku">Hakim</a></p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>&copy; 2025 Clinique Priorité Santé. Tous droits réservés.</p>
+                    <a href="#privacy">Politique de confidentialité</a>
+                    <a href="#terms">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion du formulaire de contact
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulation d'envoi
+            const submitBtn = document.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = '📤 Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            // Simuler un délai d'envoi
+            setTimeout(() => {
+                // Afficher le message de succès
+                document.getElementById('form-success').style.display = 'block';
+                document.getElementById('form-error').style.display = 'none';
+                
+                // Réinitialiser le formulaire
+                this.reset();
+                
+                // Restaurer le bouton
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Faire défiler vers le message de succès
+                document.getElementById('form-success').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Masquer le message après 5 secondes
+                setTimeout(() => {
+                    document.getElementById('form-success').style.display = 'none';
+                }, 5000);
+                
+            }, 2000);
+        });
+        
+        // Animation des éléments au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observer tous les éléments animés
+            document.querySelectorAll('.info-card, .appointment-card, .hours-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        
+        // Styles pour les animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .info-card, .appointment-card, .hours-card {
+                opacity: 0;
+            }
+            
+            .nav-menu a.active {
+                color: var(--accent-color) !important;
+                font-weight: 600;
+            }
+            
+            .nav-menu a.active::after {
+                width: 100%;
+                background: var(--accent-color);
+            }
+            
+            @media (max-width: 768px) {
+                .contact-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+                
+                .emergency-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .emergency-number {
+                    font-size: 2rem;
+                }
+                
+                .appointment-grid, .hours-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

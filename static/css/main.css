@@ -193,6 +193,20 @@ body {
     overflow: hidden;
 }
 
+/* Fallback pour les navigateurs qui ne supportent pas l'image */
+.hero.no-image {
+    background: linear-gradient(135deg, 
+        var(--primary-color) 0%, 
+        var(--secondary-color) 50%, 
+        var(--accent-color) 100%);
+}
+
+.hero.no-image::before {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.9) 0%, 
+        rgba(255, 255, 255, 0.7) 100%);
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -1988,4 +2002,152 @@ body {
     font-size: 2rem;
     font-weight: 700;
     color: var(--secondary-color);
+}
+/* R
+esponsive Design pour la section Hero */
+@media (max-width: 768px) {
+    .hero {
+        /* Désactiver background-attachment: fixed sur mobile pour de meilleures performances */
+        background-attachment: scroll;
+        min-height: 80vh;
+        padding: 120px 0 60px;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .doctor-search {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .hero-image {
+        order: -1;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 70vh;
+        padding: 100px 0 40px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .doctor-search {
+        padding: 1rem;
+    }
+}
+
+/* Amélioration de l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
+/* Mode sombre (optionnel) */
+@media (prefers-color-scheme: dark) {
+    .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../images/hero.png');
+    }
+}/*
+ Logo cliquable */
+.logo a {
+    display: block;
+    transition: var(--transition);
+}
+
+.logo a:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation active */
+.nav-menu a.active {
+    color: var(--accent-color) !important;
+    font-weight: 600;
+}
+
+.nav-menu a.active::after {
+    width: 100%;
+    background: var(--accent-color);
+}
+
+/* Amélioration responsive pour la navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--gradient-primary);
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 5px 20px var(--shadow-medium);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        margin: 0.5rem 0;
+    }
+    
+    .hamburger {
+        display: block;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--white);
+        margin: 6px 0;
+        transition: var(--transition);
+        border-radius: 2px;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+/* Bouton hamburger caché par défaut */
+.hamburger {
+    display: none;
 }

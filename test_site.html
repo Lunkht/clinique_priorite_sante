@@ -73,8 +73,20 @@
         addResult(`🌐 URL actuelle: ${window.location.href}`, 'info');
         addResult(`📱 User Agent: ${navigator.userAgent}`, 'info');
         
+        // Test 5: Vérifier l'image hero
+        fetch('static/images/hero.png')
+            .then(response => {
+                if (response.ok) {
+                    addResult('✅ Image hero accessible', 'success');
+                } else {
+                    addResult('❌ Image hero non accessible', 'error');
+                }
+            })
+            .catch(() => addResult('❌ Erreur lors de l\'accès à l\'image hero', 'error'));
+        
         setTimeout(() => {
             addResult('🎯 <a href="index.html">Cliquez ici pour accéder au site principal</a>', 'info');
+            addResult('🖼️ <a href="test_hero_image.html">Test spécifique de l\'image hero</a>', 'info');
         }, 2000);
     </script>
 </body>

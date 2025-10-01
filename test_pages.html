@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test des Pages - Clinique Priorité Santé</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background: #f8f9fa;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .test-result { 
+            padding: 15px; 
+            margin: 15px 0; 
+            border-radius: 8px; 
+            border-left: 4px solid;
+        }
+        
+        .success { 
+            background: #d4edda; 
+            color: #155724; 
+            border-left-color: #28a745;
+        }
+        
+        .error { 
+            background: #f8d7da; 
+            color: #721c24; 
+            border-left-color: #dc3545;
+        }
+        
+        .info { 
+            background: #d1ecf1; 
+            color: #0c5460; 
+            border-left-color: #17a2b8;
+        }
+        
+        .page-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .page-link {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .page-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+        
+        .test-stats {
+            background: #e9ecef;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            display: inline-block;
+            margin: 0 1rem;
+            font-weight: 600;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            color: #4a90e2;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Test des Pages - Clinique Priorité Santé</h1>
+        
+        <div class="test-stats" id="test-stats">
+            <div class="stat-item">
+                <div class="stat-number" id="total-pages">0</div>
+                <div>Pages Totales</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="working-pages">0</div>
+                <div>Pages Fonctionnelles</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="success-rate">0%</div>
+                <div>Taux de Réussite</div>
+            </div>
+        </div>
+        
+        <div id="test-results"></div>
+        
+        <h2>🔗 Navigation Rapide</h2>
+        <div class="page-links">
+            <a href="index.html" class="page-link">🏠 Accueil</a>
+            <a href="medecins.html" class="page-link">👨‍⚕️ Médecins</a>
+            <a href="clinique.html" class="page-link">🏥 Clinique</a>
+            <a href="apropos.html" class="page-link">ℹ️ À Propos</a>
+            <a href="contact.html" class="page-link">📞 Contact</a>
+            <a href="test_navigation.html" class="page-link" style="background: linear-gradient(135deg, #28a745, #20c997);">🧭 Test Navigation</a>
+        </div>
+        
+        <div class="test-result info">
+            <strong>💡 Instructions:</strong><br>
+            • Cliquez sur les liens ci-dessus pour tester chaque page<br>
+            • Vérifiez que la navigation fonctionne correctement<br>
+            • Testez les fonctionnalités interactives (formulaires, recherche, etc.)<br>
+            • Vérifiez la responsivité sur mobile
+        </div>
+    </div>
+
+    <script>
+        const results = document.getElementById('test-results');
+        const pages = [
+            { name: 'Accueil', url: 'index.html', icon: '🏠' },
+            { name: 'Médecins', url: 'medecins.html', icon: '👨‍⚕️' },
+            { name: 'Clinique', url: 'clinique.html', icon: '🏥' },
+            { name: 'À Propos', url: 'apropos.html', icon: 'ℹ️' },
+            { name: 'Contact', url: 'contact.html', icon: '📞' }
+        ];
+        
+        let workingPages = 0;
+        let totalPages = pages.length;
+        
+        function addResult(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = message;
+            results.appendChild(div);
+        }
+        
+        function updateStats() {
+            document.getElementById('total-pages').textContent = totalPages;
+            document.getElementById('working-pages').textContent = workingPages;
+            document.getElementById('success-rate').textContent = Math.round((workingPages / totalPages) * 100) + '%';
+        }
+        
+        // Tester chaque page
+        pages.forEach((page, index) => {
+            fetch(page.url)
+                .then(response => {
+                    if (response.ok) {
+                        addResult(`${page.icon} <strong>${page.name}</strong> - Page accessible`, 'success');
+                        workingPages++;
+                        
+                        // Tester le contenu de la page
+                        return response.text();
+                    } else {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                })
+                .then(html => {
+                    // Vérifications basiques du contenu
+                    const checks = [
+                        { test: html.includes('Clinique Priorité Santé'), name: 'Titre correct' },
+                        { test: html.includes('static/css/main.css'), name: 'CSS chargé' },
+                        { test: html.includes('nav-menu'), name: 'Navigation présente' },
+                        { test: html.includes('footer'), name: 'Footer présent' }
+                    ];
+                    
+                    const passedChecks = checks.filter(check => check.test).length;
+                    const totalChecks = checks.length;
+                    
+                    if (passedChecks === totalChecks) {
+                        addResult(`${page.icon} <strong>${page.name}</strong> - Tous les éléments présents (${passedChecks}/${totalChecks})`, 'success');
+                    } else {
+                        addResult(`${page.icon} <strong>${page.name}</strong> - Éléments manquants (${passedChecks}/${totalChecks})`, 'error');
+                        const failedChecks = checks.filter(check => !check.test);
+                        addResult(`&nbsp;&nbsp;&nbsp;❌ Manquant: ${failedChecks.map(c => c.name).join(', ')}`, 'error');
+                    }
+                })
+                .catch(error => {
+                    addResult(`${page.icon} <strong>${page.name}</strong> - Erreur: ${error.message}`, 'error');
+                })
+                .finally(() => {
+                    // Mettre à jour les stats après chaque test
+                    if (index === pages.length - 1) {
+                        setTimeout(updateStats, 100);
+                    }
+                });
+        });
+        
+        // Tests supplémentaires
+        setTimeout(() => {
+            addResult('🔍 <strong>Tests supplémentaires:</strong>', 'info');
+            
+            // Test des ressources CSS
+            fetch('static/css/main.css')
+                .then(response => {
+                    if (response.ok) {
+                        addResult('✅ Fichier CSS principal accessible', 'success');
+                    } else {
+                        addResult('❌ Fichier CSS principal non accessible', 'error');
+                    }
+                })
+                .catch(() => addResult('❌ Erreur lors du chargement du CSS', 'error'));
+            
+            // Test des ressources JS
+            const jsFiles = ['data.js', 'navigation.js', 'main.js', 'doctors.js'];
+            jsFiles.forEach(file => {
+                fetch(`static/js/${file}`)
+                    .then(response => {
+                        if (response.ok) {
+                            addResult(`✅ ${file} accessible`, 'success');
+                        } else {
+                            addResult(`❌ ${file} non accessible`, 'error');
+                        }
+                    })
+                    .catch(() => addResult(`❌ Erreur lors du chargement de ${file}`, 'error'));
+            });
+            
+            // Test des images
+            const images = ['logo-01.svg', 'hero.png', 'emergency_call-02.svg'];
+            images.forEach(image => {
+                fetch(`static/images/${image}`)
+                    .then(response => {
+                        if (response.ok) {
+                            addResult(`✅ Image ${image} accessible`, 'success');
+                        } else {
+                            addResult(`❌ Image ${image} non accessible`, 'error');
+                        }
+                    })
+                    .catch(() => addResult(`❌ Erreur lors du chargement de ${image}`, 'error'));
+            });
+            
+        }, 2000);
+        
+        // Informations sur l'environnement
+        addResult(`🌐 URL: ${window.location.href}`, 'info');
+        addResult(`📱 User Agent: ${navigator.userAgent.substring(0, 50)}...`, 'info');
+        addResult(`🖥️ Résolution: ${window.screen.width}x${window.screen.height}`, 'info');
+        
+        // Initialiser les stats
+        updateStats();
+    </script>
+</body>
+</html>
