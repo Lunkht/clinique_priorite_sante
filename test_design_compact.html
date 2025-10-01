@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Design Compact - Clinique Priorité Santé</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .color-item {
+            padding: 2rem 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px var(--shadow-light);
+        }
+        
+        .primary { background: var(--primary-color); }
+        .primary-dark { background: var(--primary-dark); }
+        .secondary { background: var(--secondary-color); }
+        .accent { background: var(--accent-color); }
+        .error { background: var(--error-color); }
+        .warning { background: var(--warning-color); color: var(--text-dark); }
+        
+        .size-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .old-size {
+            background: #ffe6e6;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .new-size {
+            background: #e6ffe6;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .sample-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 25px var(--shadow-light);
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .sample-header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .sample-content {
+            padding: 1.5rem;
+        }
+        
+        .sample-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .sample-tag {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .sample-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .sample-btn {
+            padding: 0.6rem 0.8rem;
+            border-radius: var(--border-radius-small);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+        
+        .btn-primary { background: var(--primary-color); color: var(--white); }
+        .btn-secondary { background: var(--secondary-color); color: var(--white); }
+        .btn-accent { background: var(--accent-color); color: var(--white); }
+        .btn-error { background: var(--error-color); color: var(--white); }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎨 Design Compact - Palette de Couleurs Simplifiée</h1>
+        
+        <!-- Palette de couleurs -->
+        <section>
+            <h2>🎨 Nouvelle Palette de Couleurs</h2>
+            <div class="color-palette">
+                <div class="color-item primary">
+                    Primary<br>
+                    <small>#4a90e2</small>
+                </div>
+                <div class="color-item primary-dark">
+                    Primary Dark<br>
+                    <small>#357abd</small>
+                </div>
+                <div class="color-item secondary">
+                    Secondary<br>
+                    <small>#2c5aa0</small>
+                </div>
+                <div class="color-item accent">
+                    Accent<br>
+                    <small>#28a745</small>
+                </div>
+                <div class="color-item error">
+                    Error<br>
+                    <small>#dc3545</small>
+                </div>
+                <div class="color-item warning">
+                    Warning<br>
+                    <small>#ffc107</small>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Comparaison des tailles -->
+        <section>
+            <h2>📏 Comparaison des Tailles</h2>
+            <div class="size-comparison">
+                <div class="old-size">
+                    <h3>❌ Anciennes Tailles</h3>
+                    <ul>
+                        <li>Cartes: 400px minimum</li>
+                        <li>Gap: 2.5rem</li>
+                        <li>Padding: 2rem</li>
+                        <li>Icônes: 3rem</li>
+                        <li>Titres: 1.4rem</li>
+                    </ul>
+                </div>
+                <div class="new-size">
+                    <h3>✅ Nouvelles Tailles</h3>
+                    <ul>
+                        <li>Cartes: 320px minimum</li>
+                        <li>Gap: 1.5rem</li>
+                        <li>Padding: 1.5rem</li>
+                        <li>Icônes: 2.2rem</li>
+                        <li>Titres: 1.2rem</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Exemple de carte compacte -->
+        <section>
+            <h2>🏥 Exemple de Carte Compacte</h2>
+            <div style="max-width: 350px; margin: 0 auto;">
+                <div class="sample-card">
+                    <div class="sample-header">
+                        <div style="display: flex; align-items: center; gap: 0.8rem;">
+                            <span style="font-size: 2.2rem;">🏥</span>
+                            <div>
+                                <div style="font-size: 0.9rem; opacity: 0.9;">Clinique Principale</div>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.8rem;">★★★★☆</div>
+                            <div style="font-size: 0.8rem;">4.8</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sample-content">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--secondary-color);">
+                            Clinique Priorité Santé - Kaloum
+                        </h3>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem; line-height: 1.5;">
+                            Établissement principal avec équipements de pointe et services complets.
+                        </p>
+                        
+                        <div style="background: var(--light-bg); padding: 1rem; border-radius: var(--border-radius-small); margin-bottom: 1rem;">
+                            <div style="font-size: 0.85rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--primary-color);">📍</span> Avenue de la République, Kaloum
+                            </div>
+                            <div style="font-size: 0.85rem; margin-bottom: 0.5rem;">
+                                <span style="color: var(--primary-color);">👨‍⚕️</span> Dr. Mamadou Sylla
+                            </div>
+                            <div style="font-size: 0.85rem;">
+                                <span style="color: var(--primary-color);">🏥</span> 120 lits
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; margin-bottom: 0.8rem; color: var(--secondary-color);">🩺 Spécialités:</h4>
+                            <div class="sample-tags">
+                                <span class="sample-tag">Médecine Générale</span>
+                                <span class="sample-tag">Chirurgie</span>
+                                <span class="sample-tag">Urgences</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sample-actions">
+                            <a href="#" class="sample-btn btn-primary">📞 Appeler</a>
+                            <a href="#" class="sample-btn btn-secondary">✉️ Email</a>
+                            <a href="#" class="sample-btn btn-accent">🗺️ Localiser</a>
+                            <a href="#" class="sample-btn btn-error">📅 RDV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Navigation -->
+        <section style="text-align: center; margin-top: 3rem;">
+            <h3>🔗 Tester les Pages</h3>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html" class="sample-btn btn-primary">🏠 Accueil</a>
+                <a href="clinique.html" class="sample-btn btn-secondary">🏥 Cliniques</a>
+                <a href="medecins.html" class="sample-btn btn-accent">👨‍⚕️ Médecins</a>
+                <a href="contact.html" class="sample-btn btn-error">📞 Contact</a>
+            </div>
+        </section>
+        
+        <div style="background: var(--light-bg); padding: 1.5rem; border-radius: var(--border-radius); margin-top: 2rem; text-align: center;">
+            <h4 style="color: var(--secondary-color); margin-bottom: 1rem;">✨ Améliorations Apportées</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li>✅ Palette de couleurs réduite à 6 couleurs principales</li>
+                <li>✅ Taille des cartes réduite de 400px à 320px</li>
+                <li>✅ Espacement réduit pour plus de compacité</li>
+                <li>✅ Cohérence visuelle entre toutes les pages</li>
+                <li>✅ Design plus épuré et professionnel</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

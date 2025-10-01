@@ -1,22 +1,23 @@
-/* Variables CSS pour une maintenance plus facile */
+/* Variables CSS pour une maintenance plus facile - Palette simplifiée */
 :root {
-    --primary-color: #e26d4a;
+    --primary-color: #4a90e2;
     --primary-dark: #357abd;
     --secondary-color: #2c5aa0;
-    --accent-color: #ff6b35;
-    --accent-dark: #e55a2b;
-    --success-color: #28a745;
+    --accent-color: #28a745;
+    --accent-dark: #218838;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
     --light-bg: #f8f9fa;
     --white: #ffffff;
     --text-dark: #333333;
     --text-light: #666666;
     --border-light: #e9ecef;
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-medium: rgba(0, 0, 0, 0.15);
-    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, #e91801 100%);
-    --gradient-light: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%);
-    --border-radius: 15px;
-    --border-radius-small: 8px;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.12);
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    --gradient-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    --border-radius: 12px;
+    --border-radius-small: 6px;
     --transition: all 0.3s ease;
 }
 
@@ -2991,8 +2992,8 @@ iniques Section Styles */
 
 .cliniques-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
     margin: 2rem 0;
 }
 
@@ -3014,7 +3015,7 @@ iniques Section Styles */
 .clinique-header {
     background: var(--gradient-primary);
     color: var(--white);
-    padding: 1.5rem;
+    padding: 1rem;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -3029,7 +3030,7 @@ iniques Section Styles */
 }
 
 .clinique-icon {
-    font-size: 3rem;
+    font-size: 2.2rem;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
@@ -3063,37 +3064,37 @@ iniques Section Styles */
 }
 
 .clinique-info {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .clinique-name {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--secondary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     font-weight: 600;
     line-height: 1.3;
 }
 
 .clinique-description {
     color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
 
 .clinique-details {
     background: var(--light-bg);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: var(--border-radius-small);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .detail-row {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
 }
 
 .detail-row:last-child {
@@ -3127,26 +3128,26 @@ iniques Section Styles */
 .specialty-tag {
     background: var(--primary-color);
     color: var(--white);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
     font-weight: 500;
 }
 
 .facility-tag {
-    background: var(--success-color);
+    background: var(--accent-color);
     color: var(--white);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
     font-weight: 500;
 }
 
 .contact-info {
     background: var(--light-bg);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: var(--border-radius-small);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .contact-row {
@@ -3162,10 +3163,10 @@ iniques Section Styles */
 }
 
 .contact-row.emergency {
-    background: rgba(255, 71, 87, 0.1);
+    background: rgba(220, 53, 69, 0.1);
     padding: 0.5rem;
     border-radius: var(--border-radius-small);
-    border-left: 3px solid #ff4757;
+    border-left: 3px solid var(--error-color);
 }
 
 .contact-icon {
@@ -3176,7 +3177,7 @@ iniques Section Styles */
 }
 
 .contact-row.emergency .contact-icon {
-    color: #ff4757;
+    color: var(--error-color);
 }
 
 .contact-row a {
@@ -3190,15 +3191,15 @@ iniques Section Styles */
 }
 
 .contact-row.emergency a {
-    color: #ff4757;
+    color: var(--error-color);
     font-weight: 600;
 }
 
 .hours-summary {
     background: var(--light-bg);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: var(--border-radius-small);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .hours-summary h4 {
@@ -3219,11 +3220,11 @@ iniques Section Styles */
 }
 
 .hours-item.emergency {
-    background: rgba(255, 71, 87, 0.1);
+    background: rgba(220, 53, 69, 0.1);
     padding: 0.5rem;
     border-radius: var(--border-radius-small);
-    border-left: 3px solid #ff4757;
-    color: #ff4757;
+    border-left: 3px solid var(--error-color);
+    color: var(--error-color);
     font-weight: 600;
 }
 
@@ -3234,17 +3235,17 @@ iniques Section Styles */
 }
 
 .action-btn {
-    padding: 0.8rem 1rem;
-    border-radius: 25px;
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--border-radius-small);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 500;
+    font-size: 0.8rem;
     text-align: center;
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .action-btn.primary {
@@ -3253,17 +3254,17 @@ iniques Section Styles */
 }
 
 .action-btn.secondary {
-    background: var(--accent-color);
+    background: var(--secondary-color);
     color: var(--white);
 }
 
 .action-btn.tertiary {
-    background: var(--success-color);
+    background: var(--accent-color);
     color: var(--white);
 }
 
 .action-btn.success {
-    background: #28a745;
+    background: var(--accent-color);
     color: var(--white);
 }
 
@@ -3290,27 +3291,27 @@ iniques Section Styles */
 /* Responsive Design for Cliniques */
 @media (max-width: 1024px) {
     .cliniques-grid {
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.2rem;
     }
 }
 
 @media (max-width: 768px) {
     .cliniques-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.2rem;
     }
     
     .clinique-info {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
     
     .clinique-header {
-        padding: 1rem;
+        padding: 0.8rem;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 1rem;
+        gap: 0.8rem;
     }
     
     .clinique-actions {
@@ -3350,4 +3351,86 @@ iniques Section Styles */
     .detail-icon, .contact-icon {
         align-self: flex-start;
     }
+}/* Doctors
+ Grid - Cohérence avec les cliniques */
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.doctor-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px var(--shadow-light);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--border-light);
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--shadow-medium);
+}
+
+.doctor-image {
+    height: 200px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.doctor-info {
+    padding: 1.5rem;
+}
+
+.doctor-name {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.doctor-specialty {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.doctor-description {
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.doctor-contact {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.6rem 1rem;
+    border-radius: var(--border-radius-small);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.contact-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
 }
