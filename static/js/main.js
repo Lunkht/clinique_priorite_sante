@@ -1,5 +1,5 @@
 // Configuration de l'API
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:5001/api' : '/api';
 
 // Variables globales
 let currentTestimonialIndex = 0;
@@ -212,21 +212,9 @@ document.head.appendChild(styleSheet);
 // Charger les spécialités
 async function loadSpecialties() {
     try {
-        // Données simulées pour la démonstration
-        const specialties = [
-            { name: "Cardiac Care", description: "Heart health treatment", icon: "❤️" },
-            { name: "Dentistry", description: "Dental Care Solutions", icon: "🦷" },
-            { name: "Gastrosciences", description: "Digestive health care", icon: "🫁" },
-            { name: "Neuroscience", description: "Brain and nerve care", icon: "🧠" },
-            { name: "Orthopaedics", description: "Bone and joint care", icon: "🦴" },
-            { name: "Liver Care", description: "Liver Health and Transplant Care", icon: "🔬" },
-            { name: "Renal Care", description: "Kidney health treatment", icon: "🩺" },
-            { name: "Gynaecology", description: "Gynaecological Care Solutions", icon: "👩‍⚕️" },
-            { name: "Paediatric Care", description: "Child health services", icon: "👶" }
-        ];
-
+        const specialties = STATIC_DATA.specialties;
         specialtiesData = specialties;
-        renderSpecialties(specialties);
+        renderSpecialities(specialties);
     } catch (error) {
         console.error('Error loading specialties:', error);
         document.getElementById('specialties-grid').innerHTML = '<p>Unable to load specialties at the moment.</p>';
@@ -234,7 +222,7 @@ async function loadSpecialties() {
 }
 
 // Afficher les spécialités
-function renderSpecialties(specialties) {
+function renderSpecialities(specialties) {
     const grid = document.getElementById('specialties-grid');
     grid.innerHTML = specialties.map(specialty => `
                 <div class="specialty-card fade-in">
@@ -248,14 +236,7 @@ function renderSpecialties(specialties) {
 // Charger les statistiques
 async function loadStats() {
     try {
-        const stats = [
-            { title: "60+ Years of Excellence", description: "Decades of trusted care, prioritizing your health and well-being" },
-            { title: "1000+ Expert Medical Care", description: "A team of professionals committed to your Health and well-being" },
-            { title: "Advanced Medical Technology", description: "Medical technology for accurate diagnosis and effective treatment" },
-            { title: "98% Happy Patients", description: "We take pride in creating a positive experience for every patient" },
-            { title: "40+ Years Trusted Pharmacy", description: "We trusted pharmacy solutions, delivering quality care and reliability" }
-        ];
-
+        const stats = STATIC_DATA.stats;
         renderStats(stats);
     } catch (error) {
         console.error('Error loading stats:', error);
@@ -276,27 +257,7 @@ function renderStats(stats) {
 // Charger les témoignages
 async function loadTestimonials() {
     try {
-        const testimonials = [
-            {
-                name: "Sarah M",
-                role: "Employee",
-                rating: 5,
-                comment: "The doctors and staff at Omnio Hospital were incredibly supportive throughout my treatment."
-            },
-            {
-                name: "David L",
-                role: "Patient",
-                rating: 5,
-                comment: "Exceptional care and support! The medical team provided outstanding treatment."
-            },
-            {
-                name: "Maria K",
-                role: "Patient",
-                rating: 5,
-                comment: "Professional service and caring staff. Highly recommend Omnio Hospital."
-            }
-        ];
-
+        const testimonials = STATIC_DATA.testimonials;
         testimonialsData = testimonials;
         renderTestimonials(testimonials);
     } catch (error) {
@@ -363,14 +324,8 @@ function selectLetter(letter) {
     // Simuler la recherche de maladies
     console.log(`Searching diseases starting with ${letter}`);
 
-    // Exemple de maladies par lettre
-    const diseasesByLetter = {
-        'A': ['Arthrite', 'Asthme', 'Anémie', 'Alzheimer'],
-        'B': ['Bronchite', 'Brûlures', 'Tension artérielle', 'Problèmes de vessie'],
-        'C': ['Cancer', 'Maladie cardiaque', 'Cholestérol', 'Cataracte'],
-        'D': ['Diabète', 'Dépression', 'Dermatite', 'Problèmes dentaires'],
-        'H': ['Maladie cardiaque', 'Hypertension', 'Hépatite', 'Maux de tête']
-    };
+    // Utiliser les données statiques
+    const diseasesByLetter = STATIC_DATA.diseases;
 
     const diseases = diseasesByLetter[letter] || [`No diseases found for letter ${letter}`];
 

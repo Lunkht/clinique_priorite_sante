@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Clinique Priorité Santé</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test du Site - Clinique Priorité Santé</h1>
+    
+    <div id="test-results"></div>
+    
+    <script>
+        const results = document.getElementById('test-results');
+        
+        function addResult(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = message;
+            results.appendChild(div);
+        }
+        
+        // Test 1: Vérifier que les fichiers CSS sont accessibles
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = 'static/css/main.css';
+        cssLink.onload = () => addResult('✅ CSS principal chargé avec succès', 'success');
+        cssLink.onerror = () => addResult('❌ Erreur de chargement du CSS principal', 'error');
+        document.head.appendChild(cssLink);
+        
+        // Test 2: Vérifier que les données statiques sont accessibles
+        const dataScript = document.createElement('script');
+        dataScript.src = 'static/js/data.js';
+        dataScript.onload = () => {
+            if (typeof STATIC_DATA !== 'undefined') {
+                addResult('✅ Données statiques chargées avec succès', 'success');
+                addResult(`📊 ${STATIC_DATA.specialties.length} spécialités disponibles`, 'info');
+                addResult(`📈 ${STATIC_DATA.stats.length} statistiques disponibles`, 'info');
+                addResult(`💬 ${STATIC_DATA.testimonials.length} témoignages disponibles`, 'info');
+            } else {
+                addResult('❌ Données statiques non disponibles', 'error');
+            }
+        };
+        dataScript.onerror = () => addResult('❌ Erreur de chargement des données statiques', 'error');
+        document.head.appendChild(dataScript);
+        
+        // Test 3: Vérifier que le JavaScript principal est accessible
+        const mainScript = document.createElement('script');
+        mainScript.src = 'static/js/main.js';
+        mainScript.onload = () => addResult('✅ JavaScript principal chargé avec succès', 'success');
+        mainScript.onerror = () => addResult('❌ Erreur de chargement du JavaScript principal', 'error');
+        document.head.appendChild(mainScript);
+        
+        // Test 4: Vérifier la page principale
+        fetch('index.html')
+            .then(response => {
+                if (response.ok) {
+                    addResult('✅ Page principale accessible', 'success');
+                } else {
+                    addResult('❌ Page principale non accessible', 'error');
+                }
+            })
+            .catch(() => addResult('❌ Erreur lors de l\'accès à la page principale', 'error'));
+        
+        // Informations générales
+        addResult(`🌐 URL actuelle: ${window.location.href}`, 'info');
+        addResult(`📱 User Agent: ${navigator.userAgent}`, 'info');
+        
+        setTimeout(() => {
+            addResult('🎯 <a href="index.html">Cliquez ici pour accéder au site principal</a>', 'info');
+        }, 2000);
+    </script>
+</body>
+</html>
