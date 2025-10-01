@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Informations Clinique - Clinique Priorité Santé</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        .test-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .info-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid #4a90e2;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .info-title {
+            color: #2c5aa0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .contact-label {
+            font-weight: 600;
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-value {
+            color: #333;
+        }
+        
+        .contact-value a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+        
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+        
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .hours-table th,
+        .hours-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .hours-table th {
+            background: #4a90e2;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .hours-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .emergency-highlight {
+            background: linear-gradient(135deg, #ff4757, #ff3742);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .emergency-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .emergency-number a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .page-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .page-link {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .page-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+        
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .image-preview {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f8f9fa;
+        }
+        
+        .image-preview img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .image-info {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🏥 Informations Complètes - Clinique Priorité Santé</h1>
+        <p>Toutes les informations pratiques pour contacter et visiter notre clinique</p>
+        
+        <!-- Informations de Contact -->
+        <div class="info-section">
+            <div class="info-title">📞 Informations de Contact</div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-label">Standard Général</div>
+                    <div class="contact-value"><a href="tel:+224622123456">+224 622 123 456</a></div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">Urgences 24h/24</div>
+                    <div class="contact-value"><a href="tel:+224622999888">+224 622 999 888</a></div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">Rendez-vous</div>
+                    <div class="contact-value"><a href="tel:+224622555777">+224 622 555 777</a></div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">Email Général</div>
+                    <div class="contact-value"><a href="mailto:info@prioritesante.gn">info@prioritesante.gn</a></div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">Email Urgences</div>
+                    <div class="contact-value"><a href="mailto:urgence@prioritesante.gn">urgence@prioritesante.gn</a></div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">Site Web</div>
+                    <div class="contact-value"><a href="https://prioritesante.gn">www.prioritesante.gn</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Adresse et Localisation -->
+        <div class="info-section">
+            <div class="info-title">📍 Adresse et Localisation</div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-label">Adresse Complète</div>
+                    <div class="contact-value">
+                        Clinique Priorité Santé<br>
+                        Avenue de la République<br>
+                        Quartier Kaloum, Face Banque Centrale<br>
+                        BP 1234, Conakry<br>
+                        République de Guinée
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">Coordonnées GPS</div>
+                    <div class="contact-value">
+                        Latitude: 9.5092° N<br>
+                        Longitude: 13.7122° W
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">Points de Repère</div>
+                    <div class="contact-value">
+                        🏦 Face à la Banque Centrale<br>
+                        🏛️ Palais du Peuple (500m)<br>
+                        ⛵ Port de Conakry (300m)<br>
+                        🏨 Hôtel Camayenne (400m)
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">Accès</div>
+                    <div class="contact-value">
+                        🚗 Parking gratuit (50 places)<br>
+                        🚌 Arrêt "Kaloum Centre" (200m)<br>
+                        ♿ Accès handicapés<br>
+                        🏢 Bâtiment 4 étages + ascenseur
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Horaires d'Ouverture -->
+        <div class="info-section">
+            <div class="info-title">🕒 Horaires d'Ouverture</div>
+            <table class="hours-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Lundi - Vendredi</th>
+                        <th>Samedi</th>
+                        <th>Dimanche</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>🏥 Consultations</strong></td>
+                        <td>07h00 - 20h00</td>
+                        <td>08h00 - 18h00</td>
+                        <td>09h00 - 16h00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🔬 Laboratoire</strong></td>
+                        <td>06h00 - 19h00</td>
+                        <td>07h00 - 17h00</td>
+                        <td>07h00 - 17h00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>💊 Pharmacie</strong></td>
+                        <td>07h30 - 19h30</td>
+                        <td>08h00 - 18h00</td>
+                        <td>08h00 - 18h00</td>
+                    </tr>
+                    <tr style="background: #ffe6e6;">
+                        <td><strong>🚨 Urgences</strong></td>
+                        <td colspan="3" style="text-align: center; font-weight: bold; color: #ff4757;">24h/24 - 7j/7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Urgences -->
+        <div class="emergency-highlight">
+            <h3>🚨 URGENCES MÉDICALES</h3>
+            <div class="emergency-number">
+                <a href="tel:+224622999888">+224 622 999 888</a>
+            </div>
+            <p>Service d'urgence disponible 24h/24 et 7j/7<br>
+            Ambulance avec équipe médicale • Réanimation • Chirurgie d'urgence</p>
+        </div>
+        
+        <!-- Images de la Clinique -->
+        <div class="info-section">
+            <div class="info-title">🖼️ Images de la Clinique</div>
+            <div class="images-grid">
+                <div class="image-preview">
+                    <img src="static/images/clinique-facade.svg" alt="Façade">
+                    <div class="image-info">Façade Principale</div>
+                </div>
+                <div class="image-preview">
+                    <img src="static/images/urgences.svg" alt="Urgences">
+                    <div class="image-info">Service d'Urgences</div>
+                </div>
+                <div class="image-preview">
+                    <img src="static/images/laboratoire.svg" alt="Laboratoire">
+                    <div class="image-info">Laboratoire</div>
+                </div>
+                <div class="image-preview">
+                    <img src="static/images/accueil.svg" alt="Accueil">
+                    <div class="image-info">Hall d'Accueil</div>
+                </div>
+                <div class="image-preview">
+                    <img src="static/images/consultation.svg" alt="Consultation">
+                    <div class="image-info">Salles de Consultation</div>
+                </div>
+                <div class="image-preview">
+                    <img src="static/images/bloc-operatoire.svg" alt="Bloc Opératoire">
+                    <div class="image-info">Bloc Opératoire</div>
+                </div>
+                <div class="image-preview">
+                    <img src="static/images/chambre.svg" alt="Chambre">
+                    <div class="image-info">Chambres</div>
+                </div>
+                <div class="image-preview">
+                    <img src="static/images/pharmacie.svg" alt="Pharmacie">
+                    <div class="image-info">Pharmacie</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation vers les Pages -->
+        <div class="info-section">
+            <div class="info-title">🔗 Explorer le Site</div>
+            <div class="page-links">
+                <a href="index.html" class="page-link">🏠 Accueil</a>
+                <a href="medecins.html" class="page-link">👨‍⚕️ Nos Médecins</a>
+                <a href="clinique.html" class="page-link">🏥 La Clinique</a>
+                <a href="apropos.html" class="page-link">ℹ️ À Propos</a>
+                <a href="contact.html" class="page-link">📞 Contact</a>
+                <a href="preview_images.html" class="page-link" style="background: linear-gradient(135deg, #28a745, #20c997);">🖼️ Galerie Images</a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #e3f2fd; border-radius: 8px;">
+            <p><strong>🎯 Toutes les informations sont maintenant disponibles sur le site !</strong><br>
+            Les visiteurs peuvent facilement nous trouver, nous contacter et connaître nos horaires.</p>
+        </div>
+    </div>
+</body>
+</html>

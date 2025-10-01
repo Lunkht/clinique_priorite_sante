@@ -211,7 +211,6 @@
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="medecins.html">Médecins</a></li>
                     <li><a href="clinique.html" class="active">Clinique</a></li>
-                    <li><a href="index.html#specialties">Spécialités</a></li>
                     <li><a href="apropos.html">À propos</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -225,64 +224,47 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Notre Clinique</h1>
-            <p>Des installations modernes et un environnement de soins exceptionnel</p>
+            <h1>Nos Établissements</h1>
+            <p>Un réseau de cliniques et centres médicaux à votre service dans toute la région</p>
         </div>
     </section>
 
-    <!-- Facilities Section -->
-    <section class="facilities-section">
+    <!-- Search Section -->
+    <section class="search-cliniques">
         <div class="container">
-            <h2 class="section-title">Nos Installations</h2>
-            <p class="section-subtitle">Des espaces conçus pour votre confort et votre guérison</p>
-            
-            <div class="facilities-grid">
-                <div class="facility-card">
-                    <div class="facility-image">🏥</div>
-                    <div class="facility-content">
-                        <h3 class="facility-title">Urgences 24h/24</h3>
-                        <p class="facility-description">Service d'urgence moderne équipé pour traiter tous types d'urgences médicales avec une équipe disponible 24h/24 et 7j/7.</p>
-                    </div>
-                </div>
-                
-                <div class="facility-card">
-                    <div class="facility-image">🔬</div>
-                    <div class="facility-content">
-                        <h3 class="facility-title">Laboratoire d'Analyses</h3>
-                        <p class="facility-description">Laboratoire équipé des dernières technologies pour des analyses rapides et précises. Résultats disponibles en quelques heures.</p>
-                    </div>
-                </div>
-                
-                <div class="facility-card">
-                    <div class="facility-image">🏥</div>
-                    <div class="facility-content">
-                        <h3 class="facility-title">Blocs Opératoires</h3>
-                        <p class="facility-description">Salles d'opération ultramodernes avec équipements de pointe pour chirurgies générales et spécialisées.</p>
-                    </div>
-                </div>
-                
-                <div class="facility-card">
-                    <div class="facility-image">🛏️</div>
-                    <div class="facility-content">
-                        <h3 class="facility-title">Chambres d'Hospitalisation</h3>
-                        <p class="facility-description">Chambres confortables et climatisées avec équipements médicaux modernes pour un séjour agréable.</p>
-                    </div>
-                </div>
-                
-                <div class="facility-card">
-                    <div class="facility-image">👶</div>
-                    <div class="facility-content">
-                        <h3 class="facility-title">Maternité</h3>
-                        <p class="facility-description">Service de maternité complet avec suivi prénatal, salles d'accouchement modernes et soins néonatals.</p>
-                    </div>
-                </div>
-                
-                <div class="facility-card">
-                    <div class="facility-image">💊</div>
-                    <div class="facility-content">
-                        <h3 class="facility-title">Pharmacie</h3>
-                        <p class="facility-description">Pharmacie interne avec large gamme de médicaments et conseils pharmaceutiques professionnels.</p>
-                    </div>
+            <h2 style="text-align: center; margin-bottom: 2rem;">Trouvez l'établissement le plus proche</h2>
+            <div class="search-form">
+                <input type="text" class="search-input" placeholder="Rechercher par nom, spécialité ou quartier..." id="clinique-search">
+                <select class="search-input" id="type-filter">
+                    <option value="">Tous les types</option>
+                    <option value="clinique principale">Clinique Principale</option>
+                    <option value="centre médical">Centre Médical</option>
+                    <option value="polyclinique">Polyclinique</option>
+                    <option value="centre de santé">Centre de Santé</option>
+                    <option value="clinique spécialisée">Clinique Spécialisée</option>
+                    <option value="maternité">Maternité</option>
+                </select>
+                <select class="search-input" id="district-filter">
+                    <option value="">Tous les quartiers</option>
+                    <option value="kaloum">Kaloum</option>
+                    <option value="matam">Matam</option>
+                    <option value="ratoma">Ratoma</option>
+                    <option value="dixinn">Dixinn</option>
+                    <option value="camayenne">Camayenne</option>
+                </select>
+                <button class="search-btn" onclick="searchCliniques()">🔍 Rechercher</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cliniques Grid -->
+    <section class="cliniques-section">
+        <div class="container">
+            <div class="cliniques-grid" id="cliniques-grid">
+                <!-- Les cliniques seront chargées ici par JavaScript -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Chargement des établissements...</p>
                 </div>
             </div>
         </div>
@@ -375,6 +357,70 @@
                     <div class="equipment-icon">💻</div>
                     <h3 class="equipment-title">Système Digital</h3>
                     <p class="equipment-description">Dossiers médicaux électroniques et gestion digitale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic Gallery Section -->
+    <section class="clinic-gallery">
+        <div class="container">
+            <h2 class="section-title">Découvrez Notre Clinique</h2>
+            <p class="section-subtitle">Un aperçu de nos installations modernes et de notre environnement de soins</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item main-image">
+                    <div class="gallery-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('static/images/clinique-facade.svg'); background-size: cover; background-position: center;">
+                        <div class="gallery-overlay">
+                            <h3>Façade Principale</h3>
+                            <p>Bâtiment moderne de 4 étages au cœur de Conakry</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('static/images/accueil.svg'); background-size: cover; background-position: center;">
+                        <div class="gallery-overlay">
+                            <h4>Hall d'Accueil</h4>
+                            <p>Espace d'accueil climatisé et confortable</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('static/images/consultation.svg'); background-size: cover; background-position: center;">
+                        <div class="gallery-overlay">
+                            <h4>Salles de Consultation</h4>
+                            <p>Cabinets médicaux équipés et modernes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('static/images/bloc-operatoire.svg'); background-size: cover; background-position: center;">
+                        <div class="gallery-overlay">
+                            <h4>Bloc Opératoire</h4>
+                            <p>Salles d'opération aux normes internationales</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('static/images/chambre.svg'); background-size: cover; background-position: center;">
+                        <div class="gallery-overlay">
+                            <h4>Chambres d'Hospitalisation</h4>
+                            <p>Chambres confortables avec équipements médicaux</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('static/images/pharmacie.svg'); background-size: cover; background-position: center;">
+                        <div class="gallery-overlay">
+                            <h4>Pharmacie</h4>
+                            <p>Pharmacie interne avec large gamme de médicaments</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -569,5 +615,9 @@
         `;
         document.head.appendChild(style);
     </script>
+    
+    <script src="static/js/data.js"></script>
+    <script src="static/js/navigation.js"></script>
+    <script src="static/js/cliniques.js"></script>
 </body>
 </html>
