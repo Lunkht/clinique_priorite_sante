@@ -61,6 +61,42 @@ def create_placeholder_images():
             "subtitle": "Médicaments & Conseils",
             "color": "#1e90ff",
             "icon": "💊"
+        },
+        "clinique-kaloum.jpg": {
+            "title": "Clinique Priorité Santé",
+            "subtitle": "Kaloum - Établissement Principal",
+            "color": "#4a90e2",
+            "icon": "🏥"
+        },
+        "centre-matam.jpg": {
+            "title": "Centre Médical",
+            "subtitle": "Matam - Soins Ambulatoires",
+            "color": "#28a745",
+            "icon": "🏢"
+        },
+        "polyclinique-ratoma.jpg": {
+            "title": "Polyclinique",
+            "subtitle": "Ratoma - Chirurgie Spécialisée",
+            "color": "#6f42c1",
+            "icon": "🏛️"
+        },
+        "centre-dixinn.jpg": {
+            "title": "Centre de Santé",
+            "subtitle": "Dixinn - Soins Communautaires",
+            "color": "#fd7e14",
+            "icon": "🏪"
+        },
+        "clinique-camayenne.jpg": {
+            "title": "Clinique Spécialisée",
+            "subtitle": "Camayenne - Haute Technologie",
+            "color": "#e83e8c",
+            "icon": "⚕️"
+        },
+        "maternite-kipe.jpg": {
+            "title": "Maternité Priorité",
+            "subtitle": "Kipé - Mère & Enfant",
+            "color": "#20c997",
+            "icon": "👶"
         }
     }
     

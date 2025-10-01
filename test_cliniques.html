@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cliniques - Réseau Priorité Santé</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .cliniques-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .clinique-summary {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .clinique-summary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+        }
+        
+        .clinique-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .clinique-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .clinique-type {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+        
+        .clinique-district {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            background: rgba(255,255,255,0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4a90e2;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .features-list {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .features-list h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+        
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            color: #333;
+        }
+        
+        .features-list li::before {
+            content: "✅ ";
+            margin-right: 0.5rem;
+        }
+        
+        .page-link {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0.5rem 1rem 0;
+            transition: transform 0.2s;
+        }
+        
+        .page-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+        
+        .emergency-highlight {
+            background: linear-gradient(135deg, #ff4757, #ff3742);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .emergency-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🏥 Réseau Priorité Santé - Nos Établissements</h1>
+        <p>Découvrez notre réseau de 6 établissements de santé répartis dans toute la région de Conakry</p>
+        
+        <!-- Statistiques du Réseau -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Établissements</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98,000+</div>
+                <div class="stat-label">Patients/an</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">370</div>
+                <div class="stat-label">Lits au total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Quartiers couverts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Urgences</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4.7</div>
+                <div class="stat-label">Note moyenne</div>
+            </div>
+        </div>
+        
+        <!-- Vue d'ensemble des Cliniques -->
+        <h2>🏥 Nos Établissements</h2>
+        <div class="cliniques-overview">
+            <div class="clinique-summary" style="background: linear-gradient(135deg, #4a90e2, #357abd);">
+                <span class="clinique-icon">🏥</span>
+                <div class="clinique-title">Clinique Priorité Santé</div>
+                <div class="clinique-type">Clinique Principale</div>
+                <div class="clinique-district">Kaloum</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem;">120 lits • 25,000+ patients/an</div>
+            </div>
+            
+            <div class="clinique-summary" style="background: linear-gradient(135deg, #28a745, #20c997);">
+                <span class="clinique-icon">🏢</span>
+                <div class="clinique-title">Centre Médical Matam</div>
+                <div class="clinique-type">Centre Médical</div>
+                <div class="clinique-district">Matam</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem;">40 lits • 15,000+ patients/an</div>
+            </div>
+            
+            <div class="clinique-summary" style="background: linear-gradient(135deg, #6f42c1, #5a32a3);">
+                <span class="clinique-icon">🏛️</span>
+                <div class="clinique-title">Polyclinique Ratoma</div>
+                <div class="clinique-type">Polyclinique</div>
+                <div class="clinique-district">Ratoma</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem;">60 lits • 18,000+ patients/an</div>
+            </div>
+            
+            <div class="clinique-summary" style="background: linear-gradient(135deg, #fd7e14, #e8590c);">
+                <span class="clinique-icon">🏪</span>
+                <div class="clinique-title">Centre de Santé Dixinn</div>
+                <div class="clinique-type">Centre de Santé</div>
+                <div class="clinique-district">Dixinn</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem;">20 lits • 12,000+ patients/an</div>
+            </div>
+            
+            <div class="clinique-summary" style="background: linear-gradient(135deg, #e83e8c, #d91a72);">
+                <span class="clinique-icon">⚕️</span>
+                <div class="clinique-title">Clinique Spécialisée</div>
+                <div class="clinique-type">Haute Technologie</div>
+                <div class="clinique-district">Camayenne</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem;">80 lits • 20,000+ patients/an</div>
+            </div>
+            
+            <div class="clinique-summary" style="background: linear-gradient(135deg, #20c997, #17a2b8);">
+                <span class="clinique-icon">👶</span>
+                <div class="clinique-title">Maternité Priorité</div>
+                <div class="clinique-type">Maternité Spécialisée</div>
+                <div class="clinique-district">Kipé</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem;">50 lits • 8,000+ patients/an</div>
+            </div>
+        </div>
+        
+        <!-- Services Disponibles -->
+        <div class="features-list">
+            <h3>🩺 Services Disponibles dans Notre Réseau</h3>
+            <ul>
+                <li>Médecine Générale</li>
+                <li>Chirurgie Générale et Spécialisée</li>
+                <li>Urgences 24h/24</li>
+                <li>Maternité et Néonatologie</li>
+                <li>Pédiatrie</li>
+                <li>Cardiologie</li>
+                <li>Neurologie</li>
+                <li>Orthopédie</li>
+                <li>Ophtalmologie</li>
+                <li>Dermatologie</li>
+                <li>Gynécologie</li>
+                <li>Laboratoires d'Analyses</li>
+                <li>Radiologie et Imagerie</li>
+                <li>Pharmacies</li>
+                <li>Soins Infirmiers</li>
+                <li>Vaccination</li>
+            </ul>
+        </div>
+        
+        <!-- Urgences -->
+        <div class="emergency-highlight">
+            <h3>🚨 URGENCES - RÉSEAU PRIORITÉ SANTÉ</h3>
+            <p>Nos services d'urgence sont disponibles dans plusieurs établissements :</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                <div>
+                    <strong>Kaloum (Principal)</strong><br>
+                    <div class="emergency-number">+224 622 999 888</div>
+                    <small>24h/24 - 7j/7</small>
+                </div>
+                <div>
+                    <strong>Matam</strong><br>
+                    <div class="emergency-number">+224 622 888 999</div>
+                    <small>8h-22h tous les jours</small>
+                </div>
+                <div>
+                    <strong>Camayenne</strong><br>
+                    <div class="emergency-number">+224 622 555 666</div>
+                    <small>8h-22h tous les jours</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div style="text-align: center; margin-top: 2rem;">
+            <h3>🔗 Explorer Notre Réseau</h3>
+            <a href="clinique.html" class="page-link">🏥 Voir Toutes les Cliniques</a>
+            <a href="medecins.html" class="page-link">👨‍⚕️ Nos Médecins</a>
+            <a href="contact.html" class="page-link">📞 Nous Contacter</a>
+            <a href="index.html" class="page-link">🏠 Accueil</a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #e3f2fd; border-radius: 8px;">
+            <p><strong>🎯 Réseau Priorité Santé - 6 établissements à votre service !</strong><br>
+            Chaque établissement a ses spécialités et ses informations de contact détaillées.</p>
+        </div>
+    </div>
+</body>
+</html>
