@@ -65,7 +65,7 @@ def create_placeholder_images():
         "clinique-kaloum.jpg": {
             "title": "Clinique Priorité Santé",
             "subtitle": "Kaloum - Établissement Principal",
-            "color": "#4a90e2",
+            "color": "#e26d4a",
             "icon": "🏥"
         },
         "centre-matam.jpg": {
@@ -77,25 +77,25 @@ def create_placeholder_images():
         "polyclinique-ratoma.jpg": {
             "title": "Polyclinique",
             "subtitle": "Ratoma - Chirurgie Spécialisée",
-            "color": "#357abd",
+            "color": "#e26d4a",
             "icon": "🏛️"
         },
         "centre-dixinn.jpg": {
             "title": "Centre de Santé",
             "subtitle": "Dixinn - Soins Communautaires",
-            "color": "#28a745",
+            "color": "#2c5aa0",
             "icon": "🏪"
         },
         "clinique-camayenne.jpg": {
             "title": "Clinique Spécialisée",
             "subtitle": "Camayenne - Haute Technologie",
-            "color": "#218838",
+            "color": "#e26d4a",
             "icon": "⚕️"
         },
         "maternite-kipe.jpg": {
             "title": "Maternité Priorité",
             "subtitle": "Kipé - Mère & Enfant",
-            "color": "#28a745",
+            "color": "#2c5aa0",
             "icon": "👶"
         }
     }

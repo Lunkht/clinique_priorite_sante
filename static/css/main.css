@@ -1,23 +1,22 @@
-/* Variables CSS pour une maintenance plus facile - Palette simplifiée */
+/* Variables CSS pour une maintenance plus facile */
 :root {
-    --primary-color: #4a90e2;
+    --primary-color: #e26d4a;
     --primary-dark: #357abd;
     --secondary-color: #2c5aa0;
-    --accent-color: #28a745;
-    --accent-dark: #218838;
-    --error-color: #dc3545;
-    --warning-color: #ffc107;
+    --accent-color: #ff6b35;
+    --accent-dark: #e55a2b;
+    --success-color: #28a745;
     --light-bg: #f8f9fa;
     --white: #ffffff;
     --text-dark: #333333;
     --text-light: #666666;
     --border-light: #e9ecef;
-    --shadow-light: rgba(0, 0, 0, 0.08);
-    --shadow-medium: rgba(0, 0, 0, 0.12);
-    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    --gradient-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    --border-radius: 12px;
-    --border-radius-small: 6px;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, #e91801 100%);
+    --gradient-light: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%);
+    --border-radius: 15px;
+    --border-radius-small: 8px;
     --transition: all 0.3s ease;
 }
 
@@ -103,7 +102,6 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px var(--shadow-light);
     backdrop-filter: blur(10px);
 }
 
@@ -162,15 +160,16 @@ body {
     color: var(--white);
     font-weight: 100;
     transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
-.emergency-btn img{
+
+.emergency-btn img {
     width: 30px;
     height: 30px
 }
+
 .emergency-btn:hover {
     background: var(--accent-dark);
     transform: translateY(-2px);
@@ -180,7 +179,6 @@ body {
 /* Hero Section améliorée */
 .hero {
     /* Fallback gradient si l'image ne charge pas */
-    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 50%, #f0f8ff 100%);
     /* Image de fond avec overlay */
     background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.7)), url('../images/hero.png');
     background-size: cover;
@@ -196,16 +194,16 @@ body {
 
 /* Fallback pour les navigateurs qui ne supportent pas l'image */
 .hero.no-image {
-    background: linear-gradient(135deg, 
-        var(--primary-color) 0%, 
-        var(--secondary-color) 50%, 
-        var(--accent-color) 100%);
+    background: linear-gradient(135deg,
+            var(--primary-color) 0%,
+            var(--secondary-color) 50%,
+            var(--accent-color) 100%);
 }
 
 .hero.no-image::before {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.9) 0%, 
-        rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.7) 100%);
 }
 
 .hero::before {
@@ -267,7 +265,6 @@ body {
     background: var(--white);
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 15px 50px var(--shadow-light);
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -358,7 +355,6 @@ body {
     background: var(--white);
     padding: 2.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 8px 30px var(--shadow-light);
     transition: var(--transition);
     border: 1px solid var(--border-light);
     position: relative;
@@ -390,7 +386,7 @@ body {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     display: block;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
 .specialty-card h3 {
@@ -416,7 +412,6 @@ body {
     margin-top: 3rem;
     transition: var(--transition);
     font-weight: 600;
-    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
 }
 
 .view-all-btn:hover {
@@ -561,7 +556,6 @@ body {
 .disease-search-box input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
 /* Stats Section */
@@ -595,7 +589,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     transform: scale(0);
     transition: var(--transition);
 }
@@ -687,7 +681,6 @@ body {
     border-radius: var(--border-radius);
     min-width: 320px;
     flex-shrink: 0;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
     position: relative;
     transition: var(--transition);
 }
@@ -705,7 +698,7 @@ body {
 
 .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
 }
 
 .testimonial-rating {
@@ -744,8 +737,8 @@ body {
 }
 
 .slider-btn {
-    background: rgba(255,255,255,0.2);
-    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     color: var(--white);
     width: 60px;
     height: 60px;
@@ -757,7 +750,7 @@ body {
 }
 
 .slider-btn:hover {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
 }
 
@@ -817,8 +810,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Animations */
@@ -827,6 +825,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -838,6 +837,7 @@ body {
         opacity: 0;
         transform: translateX(30px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -858,12 +858,19 @@ body {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
+
     40% {
         transform: translateY(-10px);
     }
+
     60% {
         transform: translateY(-5px);
     }
@@ -871,16 +878,17 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
     .hero-container,
     .disease-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .hero-content h1 {
         font-size: 2.8rem;
     }
-    
+
     .alphabet-grid {
         grid-template-columns: repeat(5, 1fr);
     }
@@ -890,48 +898,48 @@ body {
     .container {
         padding: 0 1rem;
     }
-    
+
     .hero-content h1 {
         font-size: 2.2rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .alphabet-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 0.8rem;
     }
-    
+
     .alphabet-btn {
         padding: 0.8rem;
         font-size: 1.1rem;
     }
-    
+
     .nav-menu {
         display: none;
     }
-    
+
     .doctor-search {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .testimonials-slider {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    
+
     .testimonial-card {
         min-width: 280px;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .specialties-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -942,19 +950,19 @@ body {
     .hero {
         padding: 120px 0 60px;
     }
-    
+
     .hero-content h1 {
         font-size: 1.8rem;
     }
-    
+
     .section-title {
         font-size: 1.6rem;
     }
-    
+
     .alphabet-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .disease-search-box {
         flex-direction: column;
     }
@@ -965,7 +973,7 @@ body {
     .nav-container {
         position: relative;
     }
-    
+
     .hamburger {
         display: block;
         width: 30px;
@@ -973,7 +981,7 @@ body {
         cursor: pointer;
         position: relative;
     }
-    
+
     .hamburger span {
         display: block;
         width: 100%;
@@ -982,15 +990,15 @@ body {
         margin: 6px 0;
         transition: var(--transition);
     }
-    
+
     .hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
-    
+
     .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
-    
+
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
     }
@@ -998,7 +1006,10 @@ body {
 
 /* Accessibilité */
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -1033,7 +1044,6 @@ body {
     background: var(--white);
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 8px 30px var(--shadow-light);
     transition: var(--transition);
     width: 180px;
     height: 90px;
@@ -1087,7 +1097,7 @@ body {
     right: 0;
     width: 50%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -1131,7 +1141,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     transition: left 0.6s ease;
 }
 
@@ -1142,13 +1152,13 @@ body {
 .action-card:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-8px);
-    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
     border-color: rgba(255, 255, 255, 0.4);
 }
 
 .action-icon {
     font-size: 3.5rem;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
     flex-shrink: 0;
 }
 
@@ -1213,7 +1223,7 @@ body {
 
 .logo-icon {
     font-size: 3rem;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
     flex-shrink: 0;
 }
 
@@ -1257,7 +1267,6 @@ body {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 .footer-links {
@@ -1418,7 +1427,7 @@ body {
 .notification-icon {
     font-size: 2.5rem;
     flex-shrink: 0;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .notification-text h4 {
@@ -1464,6 +1473,7 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+
     to {
         opacity: 0;
         transform: translateX(400px);
@@ -1471,9 +1481,12 @@ body {
 }
 
 @keyframes pulseGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 5px var(--primary-color);
     }
+
     50% {
         box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
     }
@@ -1485,7 +1498,7 @@ body {
         grid-template-columns: 1fr;
         gap: 4rem;
     }
-    
+
     .footer-links {
         grid-template-columns: repeat(2, 1fr);
         gap: 2.5rem;
@@ -1497,47 +1510,47 @@ body {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
-    
+
     .partner-logo {
         width: 160px;
         height: 80px;
         padding: 1.5rem;
     }
-    
+
     .action-cards {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .action-card {
         padding: 2.5rem;
         gap: 1.5rem;
     }
-    
+
     .action-card h3 {
         font-size: 1.4rem;
     }
-    
+
     .priority-title {
         font-size: 2.2rem;
     }
-    
+
     .footer-links {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
     }
-    
+
     .footer-brand {
         text-align: center;
     }
-    
+
     .logo-text p {
         text-align: center;
     }
@@ -1547,32 +1560,32 @@ body {
     .partners-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .partner-logo {
         width: 200px;
         height: 100px;
     }
-    
+
     .priority-title {
         font-size: 1.8rem;
     }
-    
+
     .action-card {
         padding: 2rem;
         flex-direction: column;
         text-align: center;
     }
-    
+
     .action-icon {
         font-size: 3rem;
     }
-    
+
     #custom-notification {
         right: 10px;
         left: 10px;
         min-width: auto;
     }
-    
+
     .notification-content {
         padding: 1.5rem;
     }
@@ -1634,7 +1647,6 @@ body {
 .clinic-card {
     background: var(--white);
     border-radius: var(--border-radius);
-    box-shadow: 0 8px 30px var(--shadow-light);
     transition: var(--transition);
     border: 1px solid var(--border-light);
     overflow: hidden;
@@ -1727,7 +1739,6 @@ body {
     background: var(--white);
     padding: 3rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 15px 50px var(--shadow-light);
     border: 1px solid var(--border-light);
     text-align: center;
 }
@@ -1895,7 +1906,8 @@ body {
 /* Main Content */
 .dashboard-main {
     flex-grow: 1;
-    margin-left: 260px; /* Doit être égal à la largeur de la sidebar */
+    margin-left: 260px;
+    /* Doit être égal à la largeur de la sidebar */
     padding: 2rem;
 }
 
@@ -1907,7 +1919,6 @@ body {
     padding: 1.5rem 2rem;
     border-radius: var(--border-radius);
     margin-bottom: 2rem;
-    box-shadow: 0 5px 20px var(--shadow-light);
 }
 
 .header-search {
@@ -2004,6 +2015,7 @@ body {
     font-weight: 700;
     color: var(--secondary-color);
 }
+
 /* R
 esponsive Design pour la section Hero */
 @media (max-width: 768px) {
@@ -2013,27 +2025,27 @@ esponsive Design pour la section Hero */
         min-height: 80vh;
         padding: 120px 0 60px;
     }
-    
+
     .hero-container {
         grid-template-columns: 1fr;
         gap: 3rem;
         text-align: center;
     }
-    
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .hero-content p {
         font-size: 1.1rem;
     }
-    
+
     .doctor-search {
         flex-direction: column;
         gap: 1rem;
         padding: 1.5rem;
     }
-    
+
     .hero-image {
         order: -1;
         max-width: 300px;
@@ -2046,16 +2058,16 @@ esponsive Design pour la section Hero */
         min-height: 70vh;
         padding: 100px 0 40px;
     }
-    
+
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .hero-content p {
         font-size: 1rem;
         margin-bottom: 2rem;
     }
-    
+
     .doctor-search {
         padding: 1rem;
     }
@@ -2073,7 +2085,9 @@ esponsive Design pour la section Hero */
     .hero {
         background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../images/hero.png');
     }
-}/*
+}
+
+/*
  Logo cliquable */
 .logo a {
     display: block;
@@ -2108,15 +2122,15 @@ esponsive Design pour la section Hero */
         padding: 2rem;
         box-shadow: 0 5px 20px var(--shadow-medium);
     }
-    
+
     .nav-menu.active {
         display: flex;
     }
-    
+
     .nav-menu li {
         margin: 0.5rem 0;
     }
-    
+
     .hamburger {
         display: block;
         width: 30px;
@@ -2124,7 +2138,7 @@ esponsive Design pour la section Hero */
         cursor: pointer;
         position: relative;
     }
-    
+
     .hamburger span {
         display: block;
         width: 100%;
@@ -2134,15 +2148,15 @@ esponsive Design pour la section Hero */
         transition: var(--transition);
         border-radius: 2px;
     }
-    
+
     .hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
-    
+
     .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
-    
+
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
     }
@@ -2151,7 +2165,9 @@ esponsive Design pour la section Hero */
 /* Bouton hamburger caché par défaut */
 .hamburger {
     display: none;
-}/* Clin
+}
+
+/* Clin
 ic Information Section */
 .clinic-info-section {
     padding: 5rem 0;
@@ -2190,7 +2206,7 @@ ic Information Section */
 
 .info-icon {
     font-size: 2.5rem;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .info-header h3 {
@@ -2411,31 +2427,31 @@ ic Information Section */
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .info-header {
         padding: 1.5rem;
     }
-    
+
     .info-content {
         padding: 1.5rem;
     }
-    
+
     .contact-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
     }
-    
+
     .hours-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.3rem;
     }
-    
+
     .social-contacts {
         justify-content: center;
     }
-    
+
     .emergency-number {
         font-size: 1.5rem;
     }
@@ -2445,23 +2461,25 @@ ic Information Section */
     .clinic-info-section {
         padding: 3rem 0;
     }
-    
+
     .info-header {
         padding: 1rem;
     }
-    
+
     .info-content {
         padding: 1rem;
     }
-    
+
     .info-icon {
         font-size: 2rem;
     }
-    
+
     .info-header h3 {
         font-size: 1.2rem;
     }
-}/*
+}
+
+/*
  Clinic Gallery Section */
 .clinic-gallery {
     padding: 5rem 0;
@@ -2504,7 +2522,7 @@ ic Information Section */
 }
 
 .gallery-overlay {
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
     color: var(--white);
     padding: 2rem;
     width: 100%;
@@ -2542,7 +2560,7 @@ ic Information Section */
     transform: translate(-50%, -50%);
     font-size: 4rem;
     color: var(--white);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
 
@@ -2568,7 +2586,7 @@ ic Information Section */
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 250px 200px 200px;
     }
-    
+
     .gallery-item.main-image {
         grid-column: span 2;
         grid-row: span 1;
@@ -2580,24 +2598,26 @@ ic Information Section */
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, 200px);
     }
-    
+
     .gallery-item.main-image {
         grid-column: span 1;
         grid-row: span 1;
     }
-    
+
     .gallery-overlay {
         padding: 1rem;
     }
-    
+
     .gallery-overlay h3 {
         font-size: 1.4rem;
     }
-    
+
     .gallery-overlay h4 {
         font-size: 1.1rem;
     }
-}/* Deta
+}
+
+/* Deta
 iled Location Section */
 .detailed-location {
     padding: 5rem 0;
@@ -2629,7 +2649,7 @@ iled Location Section */
 
 .location-icon-large {
     font-size: 3rem;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .location-header h3 {
@@ -2644,16 +2664,19 @@ iled Location Section */
     font-size: 1rem;
 }
 
-.address-complete, .access-info {
+.address-complete,
+.access-info {
     padding: 2rem;
     border-bottom: 1px solid var(--border-light);
 }
 
-.address-complete:last-child, .access-info:last-child {
+.address-complete:last-child,
+.access-info:last-child {
     border-bottom: none;
 }
 
-.address-complete h4, .access-info h4 {
+.address-complete h4,
+.access-info h4 {
     color: var(--secondary-color);
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
@@ -2754,7 +2777,7 @@ iled Location Section */
 .map-icon {
     font-size: 4rem;
     margin-bottom: 1rem;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .map-info h5 {
@@ -2791,7 +2814,7 @@ iled Location Section */
 .landmarks li {
     padding: 0.5rem 0;
     color: var(--text-light);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .landmarks li:last-child {
@@ -2836,7 +2859,7 @@ iled Location Section */
 
 .map-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Contact Summary */
@@ -2892,7 +2915,9 @@ iled Location Section */
     color: var(--text-light);
 }
 
-.emergency-number a, .appointment-number a, .info-number a {
+.emergency-number a,
+.appointment-number a,
+.info-number a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
@@ -2903,7 +2928,9 @@ iled Location Section */
     color: #ff4757;
 }
 
-.emergency-number a:hover, .appointment-number a:hover, .info-number a:hover {
+.emergency-number a:hover,
+.appointment-number a:hover,
+.info-number a:hover {
     text-decoration: underline;
 }
 
@@ -2913,7 +2940,7 @@ iled Location Section */
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .access-grid {
         grid-template-columns: 1fr;
     }
@@ -2923,38 +2950,39 @@ iled Location Section */
     .detailed-location {
         padding: 3rem 0;
     }
-    
+
     .location-header {
         padding: 1.5rem;
         flex-direction: column;
         text-align: center;
     }
-    
-    .address-complete, .access-info {
+
+    .address-complete,
+    .access-info {
         padding: 1.5rem;
     }
-    
+
     .map-visual {
         padding: 1.5rem;
     }
-    
+
     .map-actions {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .map-btn {
         width: 100%;
         justify-content: center;
         max-width: 250px;
     }
-    
+
     .contact-summary {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         margin-top: 2rem;
     }
-    
+
     .summary-card {
         padding: 1.5rem;
         flex-direction: column;
@@ -2966,19 +2994,21 @@ iled Location Section */
     .location-icon-large {
         font-size: 2.5rem;
     }
-    
+
     .location-header h3 {
         font-size: 1.5rem;
     }
-    
+
     .map-icon {
         font-size: 3rem;
     }
-    
+
     .summary-icon {
         font-size: 2.5rem;
     }
-}/* Cl
+}
+
+/* Cl
 iniques Section Styles */
 .search-cliniques {
     background: var(--light-bg);
@@ -3031,7 +3061,7 @@ iniques Section Styles */
 
 .clinique-icon {
     font-size: 2.2rem;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .clinique-rating {
@@ -3044,7 +3074,7 @@ iniques Section Styles */
 .rating-stars {
     color: #ffd700;
     font-size: 1rem;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .rating-number {
@@ -3054,13 +3084,13 @@ iniques Section Styles */
 }
 
 .clinique-badge {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .clinique-info {
@@ -3108,18 +3138,21 @@ iniques Section Styles */
     flex-shrink: 0;
 }
 
-.specialties-list, .facilities-list {
+.specialties-list,
+.facilities-list {
     margin-bottom: 1.5rem;
 }
 
-.specialties-list h4, .facilities-list h4 {
+.specialties-list h4,
+.facilities-list h4 {
     color: var(--secondary-color);
     font-size: 1rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
 }
 
-.specialty-tags, .facility-tags {
+.specialty-tags,
+.facility-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -3135,7 +3168,7 @@ iniques Section Styles */
 }
 
 .facility-tag {
-    background: var(--accent-color);
+    background: var(--secondary-color);
     color: var(--white);
     padding: 0.2rem 0.6rem;
     border-radius: 12px;
@@ -3163,10 +3196,10 @@ iniques Section Styles */
 }
 
 .contact-row.emergency {
-    background: rgba(220, 53, 69, 0.1);
+    background: rgba(255, 107, 53, 0.1);
     padding: 0.5rem;
     border-radius: var(--border-radius-small);
-    border-left: 3px solid var(--error-color);
+    border-left: 3px solid var(--accent-color);
 }
 
 .contact-icon {
@@ -3177,7 +3210,7 @@ iniques Section Styles */
 }
 
 .contact-row.emergency .contact-icon {
-    color: var(--error-color);
+    color: var(--accent-color);
 }
 
 .contact-row a {
@@ -3191,7 +3224,7 @@ iniques Section Styles */
 }
 
 .contact-row.emergency a {
-    color: var(--error-color);
+    color: var(--accent-color);
     font-weight: 600;
 }
 
@@ -3220,11 +3253,11 @@ iniques Section Styles */
 }
 
 .hours-item.emergency {
-    background: rgba(220, 53, 69, 0.1);
+    background: rgba(255, 107, 53, 0.1);
     padding: 0.5rem;
     border-radius: var(--border-radius-small);
-    border-left: 3px solid var(--error-color);
-    color: var(--error-color);
+    border-left: 3px solid var(--accent-color);
+    color: var(--accent-color);
     font-weight: 600;
 }
 
@@ -3259,18 +3292,18 @@ iniques Section Styles */
 }
 
 .action-btn.tertiary {
-    background: var(--accent-color);
+    background: var(--secondary-color);
     color: var(--white);
 }
 
 .action-btn.success {
-    background: var(--accent-color);
+    background: var(--primary-color);
     color: var(--white);
 }
 
 .action-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Loading state */
@@ -3301,11 +3334,11 @@ iniques Section Styles */
         grid-template-columns: 1fr;
         gap: 1.2rem;
     }
-    
+
     .clinique-info {
         padding: 1.2rem;
     }
-    
+
     .clinique-header {
         padding: 0.8rem;
         flex-direction: column;
@@ -3313,18 +3346,19 @@ iniques Section Styles */
         text-align: center;
         gap: 0.8rem;
     }
-    
+
     .clinique-actions {
         grid-template-columns: 1fr;
         gap: 0.8rem;
     }
-    
+
     .search-form {
         flex-direction: column;
         gap: 1rem;
     }
-    
-    .specialty-tags, .facility-tags {
+
+    .specialty-tags,
+    .facility-tags {
         justify-content: center;
     }
 }
@@ -3333,25 +3367,31 @@ iniques Section Styles */
     .clinique-name {
         font-size: 1.2rem;
     }
-    
+
     .clinique-icon {
         font-size: 2.5rem;
     }
-    
-    .clinique-details, .contact-info, .hours-summary {
+
+    .clinique-details,
+    .contact-info,
+    .hours-summary {
         padding: 1rem;
     }
-    
-    .detail-row, .contact-row {
+
+    .detail-row,
+    .contact-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.3rem;
     }
-    
-    .detail-icon, .contact-icon {
+
+    .detail-icon,
+    .contact-icon {
         align-self: flex-start;
     }
-}/* Doctors
+}
+
+/* Doctors
  Grid - Cohérence avec les cliniques */
 .doctors-grid {
     display: grid;
@@ -3433,4 +3473,13 @@ iniques Section Styles */
 .contact-btn:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
+}
+
+/* Tous les boutons secondaires utilisent la couleur secondaire */
+.contact-btn.secondary {
+    background: var(--secondary-color);
+}
+
+.contact-btn.secondary:hover {
+    background: var(--primary-dark);
 }
