@@ -314,8 +314,7 @@ function renderTestimonials(testimonials) {
 // Navigation des témoignages
 function slideTestimonials(direction) {
     const slider = document.getElementById('testimonials-slider');
-    const cardWidth = 320; // largeur d'une carte + gap
-
+    const cardWidth = 320; // largeur d
     if (direction === 'next') {
         currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsData.length;
     } else {
