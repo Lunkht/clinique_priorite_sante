@@ -22,18 +22,18 @@
         
         .facility-card {
             background: var(--white);
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             overflow: hidden;
-            transition: var(--transition);
+            border: 1px solid #e0e0e0;
         }
         
         .facility-card:hover {
-            transform: translateY(-5px);
+            border: 1px solid var(--primary-color);
         }
         
         .facility-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -47,7 +47,7 @@
         
         .facility-title {
             font-size: 1.3rem;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             margin-bottom: 1rem;
             font-weight: 600;
         }
@@ -74,53 +74,30 @@
         .service-item {
             background: var(--white);
             padding: 2rem 1.5rem;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(44, 90, 160, 0.1);
+            border: 1px solid #e0e0e0;
             width: 100%;
             max-width: 300px;
-            position: relative;
-            overflow: hidden;
             min-height: 200px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         
-        .service-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            transform: scaleX(0);
-            transition: var(--transition);
-        }
-        
         .service-item:hover {
-            transform: translateY(-5px);
             border-color: var(--primary-color);
-        }
-        
-        .service-item:hover::before {
-            transform: scaleX(1);
         }
         
         .service-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             display: block;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-color);
         }
         
         .service-title {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             font-weight: 600;
             margin-bottom: 0.8rem;
             font-size: 1.1rem;
@@ -150,47 +127,25 @@
         }
         
         .equipment-card {
-            background: var(--gradient-primary);
+            background: var(--primary-color);
             color: var(--white);
             padding: 2rem 1.5rem;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
             min-height: 220px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         
-        .equipment-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transform: scale(0);
-            transition: var(--transition);
-        }
-        
-        .equipment-card:hover::before {
-            transform: scale(1);
-        }
-        
         .equipment-icon {
             font-size: 2.5rem;
             margin-bottom: 0.8rem;
-            position: relative;
-            z-index: 1;
         }
         
         .equipment-title {
             font-weight: 600;
             margin-bottom: 0.8rem;
-            position: relative;
-            z-index: 1;
             font-size: 1.1rem;
             word-wrap: break-word;
             overflow-wrap: break-word;
@@ -199,8 +154,6 @@
         .equipment-description {
             opacity: 0.9;
             line-height: 1.5;
-            position: relative;
-            z-index: 1;
             font-size: 0.9rem;
             word-wrap: break-word;
             overflow-wrap: break-word;
@@ -231,7 +184,7 @@
             gap: 1rem;
             margin-bottom: 1.5rem;
             padding: 1rem;
-            background: var(--light-bg);
+            border: 1px solid #eee;
             border-radius: var(--border-radius-small);
         }
         
