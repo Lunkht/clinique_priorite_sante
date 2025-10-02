@@ -11,8 +11,7 @@
     --text-dark: #333333;
     --text-light: #666666;
     --border-light: #e9ecef;
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-medium: rgba(0, 0, 0, 0.15);
+
     --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, #e91801 100%);
     --gradient-light: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%);
     --border-radius: 15px;
@@ -80,7 +79,6 @@ body {
 .btn-primary:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
 .btn-accent {
@@ -173,7 +171,6 @@ body {
 .emergency-btn:hover {
     background: var(--accent-dark);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
 }
 
 /* Hero Section améliorée */

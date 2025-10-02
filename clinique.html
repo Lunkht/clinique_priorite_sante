@@ -29,7 +29,6 @@
         
         .facility-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px var(--shadow-medium);
         }
         
         .facility-image {
@@ -65,24 +64,28 @@
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
             justify-items: center;
+            align-items: stretch;
         }
         
         .service-item {
             background: var(--white);
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.5rem;
             border-radius: var(--border-radius);
             text-align: center;
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             border: 1px solid rgba(44, 90, 160, 0.1);
             width: 100%;
-            max-width: 320px;
+            max-width: 300px;
             position: relative;
             overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .service-item::before {
@@ -99,7 +102,6 @@
         
         .service-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             border-color: var(--primary-color);
         }
         
@@ -108,27 +110,32 @@
         }
         
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             display: block;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         
         .service-title {
             color: var(--secondary-color);
             font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .service-item p {
             color: var(--text-light);
-            line-height: 1.6;
-            font-size: 0.95rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
         
         .equipment-section {
@@ -145,11 +152,15 @@
         .equipment-card {
             background: var(--gradient-primary);
             color: var(--white);
-            padding: 2.5rem;
+            padding: 2rem 1.5rem;
             border-radius: var(--border-radius);
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .equipment-card::before {
@@ -169,24 +180,31 @@
         }
         
         .equipment-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
             position: relative;
             z-index: 1;
         }
         
         .equipment-title {
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             position: relative;
             z-index: 1;
+            font-size: 1.1rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .equipment-description {
             opacity: 0.9;
-            line-height: 1.6;
+            line-height: 1.5;
             position: relative;
             z-index: 1;
+            font-size: 0.9rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
         
         .location-section {
