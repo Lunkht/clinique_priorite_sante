@@ -29,79 +29,125 @@
             line-height: 1.5;
         }
 
-        .testimonial-author {
-            font-size: 0.85rem;
-            margin-top: 1rem;
+        .contact-zone {
+            background-color: #f8f9fa; /* var(--light-bg) */
+            padding: 2rem 0;
+            border-top: 1px solid #e9ecef; /* var(--border-light) */
+            border-bottom: 1px solid #e9ecef; /* var(--border-light) */
         }
-
-        .contact-zone {}
 
         .ctz-container {
-            max-width: 960px;
+            max-width: 1100px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 9px auto;
+            justify-content: space-around;
+            margin: 0 auto;
+            gap: 2rem;
+            flex-wrap: wrap; /* Pour la responsivité */
         }
 
         .call-us {
-            width: 22%;
-            padding: 30px;
-        }
-
-        .call-us {
-            width: 2px;
+            flex: 1; /* Pour que les éléments prennent une largeur égale */
+            min-width: 280px; /* Largeur minimale avant de passer à la ligne */
+            padding: 1.5rem;
+            text-align: center;
         }
 
         .call-us h2 {
-            color: #17176d;
-            margin-bottom: 8px;
+            color: var(--secondary-color, #2c5aa0);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .call-us p {
-            color: rgb(128, 129, 129);
-            margin-bottom: 8px;
-            font-size: 13px;
+            color: var(--text-light, #6c757d);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
         .numb-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
             margin-top: 20px;
+            gap: 1rem;
         }
 
         .numb-btn i {
-            margin-right: 15px;
-            background-color: #17176d;
-            border-radius: 50px;
-            padding: 12px;
-            color: white;
+            background-color: var(--primary-color, #e26d4a);
+            color: var(--white, #fff);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-style: normal;
+        }
+
+        .numb-btn h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color, #e26d4a);
+            margin: 0;
         }
 
         .doctor-btn {
-            display: flex;
-            align-items: center;
-            border: 1px solid #17176d;
-            padding: 10px;
+            display: inline-block;
+            border: 2px solid var(--primary-color, #e26d4a);
+            color: var(--primary-color, #e26d4a);
+            background: var(--white, #fff);
+            padding: 0.8rem 1.5rem;
             margin-top: 20px;
-            background: white;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .doctor-btn h2 {
-            font-size: 19px;
+        .doctor-btn:hover {
+            background: var(--primary-color, #e26d4a);
+            color: var(--white, #fff);
         }
 
         .open-hour {
-            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .open-hour i {
+            font-style: normal;
+            font-size: 1.5rem;
+            color: var(--primary-color, #e26d4a);
         }
 
         .open-hour span {
-            font-size: 19px;
-            font-style: bold;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary-color, #2c5aa0);
         }
 
         #our-open-hour {
-            border-left: #17176d 1px solid;
+            border-left: 1px solid var(--border-light, #dee2e6);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            #our-open-hour {
+                border-left: none;
+                border-top: 1px solid var(--border-light, #dee2e6);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .call-us {
+                border-top: 1px solid var(--border-light, #dee2e6);
+            }
+            .call-us:first-child {
+                border-top: none;
+            }
         }
     </style>
 </head>
@@ -153,28 +199,25 @@
 
             <div class="call-us">
                 <h2>Contactez-nous</h2>
-                <p>Please feel free to contact our friendly reception staff with any general or medical enquiry.</p>
+                <p>N'hésitez pas à contacter notre personnel d'accueil pour toute demande générale ou médicale.</p>
                 <div class="numb-btn">
                     <i>📞</i>
                     <h2>666 88 56 66</h2>
                 </div>
             </div>
-           
-            <div class="call-us">
-                <h2>Nos Medecin</h2>
-                <p>Qualified doctors available six days a week, view our timetable to make an appointment.</p>
-                <button class="doctor-btn">
-                    Trouve un docteur >
 
-                </button>
+            <div class="call-us">
+                <h2>Nos Médecins</h2>
+                <p>Des médecins qualifiés sont disponibles pour vous aider. Consultez leurs profils et prenez rendez-vous.</p>
+                <a href="medecins.html" class="doctor-btn">Trouver un docteur →</a>
             </div>
-            
+
             <div class="call-us" id="our-open-hour">
-                <h2>Heure</h2>
-                <p>Lundi - Dimanche <span>08:30</span> <span>20:30</span></p>
+                <h2>Heures d'Ouverture</h2>
+                <p>Lundi - Dimanche : <strong>08:30 - 20:30</strong><br>Les urgences sont ouvertes 24h/24.</p>
                 <div class="open-hour">
                     <i>📞</i>
-                    <span>666 88 56 66</span>
+                    <span>Urgences: 123 456 789</span>
                 </div>
             </div>
 
