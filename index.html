@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,23 @@
     <style>
         /* Ajustement pour rendre les cartes de témoignage plus carrées */
         .testimonial-card {
-            width: 300px; /* Largeur réduite */
-            min-width: 300px; /* Largeur minimale fixe */
-            height: 300px; /* Hauteur égale à la largeur pour un aspect carré */
+            width: 300px;
+            /* Largeur réduite */
+            min-width: 300px;
+            /* Largeur minimale fixe */
+            height: 300px;
+            /* Hauteur égale à la largeur pour un aspect carré */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centrer le contenu verticalement */
-            padding: 1.5rem; /* Ajuster le padding interne */
+            justify-content: center;
+            /* Centrer le contenu verticalement */
+            padding: 1.5rem;
+            /* Ajuster le padding interne */
         }
 
         .testimonial-text {
-            font-size: 0.9rem; /* Réduire la taille de la police pour s'adapter */
+            font-size: 0.9rem;
+            /* Réduire la taille de la police pour s'adapter */
             line-height: 1.5;
         }
 
@@ -26,14 +33,86 @@
             font-size: 0.85rem;
             margin-top: 1rem;
         }
+
+        .contact-zone {}
+
+        .ctz-container {
+            max-width: 960px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 9px auto;
+        }
+
+        .call-us {
+            width: 22%;
+            padding: 30px;
+        }
+
+        .call-us {
+            width: 2px;
+        }
+
+        .call-us h2 {
+            color: #17176d;
+            margin-bottom: 8px;
+        }
+
+        .call-us p {
+            color: rgb(128, 129, 129);
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .numb-btn {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .numb-btn i {
+            margin-right: 15px;
+            background-color: #17176d;
+            border-radius: 50px;
+            padding: 12px;
+            color: white;
+        }
+
+        .doctor-btn {
+            display: flex;
+            align-items: center;
+            border: 1px solid #17176d;
+            padding: 10px;
+            margin-top: 20px;
+            background: white;
+        }
+
+        .doctor-btn h2 {
+            font-size: 19px;
+        }
+
+        .open-hour {
+            margin-top: 20px;
+        }
+
+        .open-hour span {
+            font-size: 19px;
+            font-style: bold;
+        }
+
+        #our-open-hour {
+            border-left: #17176d 1px solid;
+        }
     </style>
 </head>
+
 <body>
-    
+
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
-            <div class="logo"><a href="index.html"><img src="static/images/logo-01.svg" alt="Clinique Priorité Santé"></a></div>
+            <div class="logo"><a href="index.html"><img src="static/images/logo-01.svg"
+                        alt="Clinique Priorité Santé"></a></div>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="active">Accueil</a></li>
@@ -42,7 +121,8 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-            <a href="contact.html#emergency" class="emergency-btn"><img src="static/images/emergency_call-02.svg" alt=""> Appel Urgent</a>
+            <a href="contact.html#emergency" class="emergency-btn"><img src="static/images/emergency_call-02.svg"
+                    alt=""> Appel Urgent</a>
         </div>
     </header>
 
@@ -50,9 +130,10 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1> Là où la guérison<br>est comme à la  <span class="highlight">maison</span></h1>
-                <p>Commencez votre parcours vers une meilleure santé. Trouvez le médecin et la spécialité qui vous conviennent ci-dessous.</p>
-               
+                <h1> Là où la guérison<br>est comme à la <span class="highlight">maison</span></h1>
+                <p>Commencez votre parcours vers une meilleure santé. Trouvez le médecin et la spécialité qui vous
+                    conviennent ci-dessous.</p>
+
                 <div class="doctor-search">
                     <select class="search-input">
                         <option>Docteur</option>
@@ -64,22 +145,56 @@
                     <button class="search-btn" onclick="searchDoctor()">🔍</button>
                 </div>
             </div>
-        
+
         </div>
     </section>
+    <div class="contact-zone">
+        <div class="ctz-container">
 
+            <div class="call-us">
+                <h2>Contactez-nous</h2>
+                <p>Please feel free to contact our friendly reception staff with any general or medical enquiry.</p>
+                <div class="numb-btn">
+                    <i>📞</i>
+                    <h2>666 88 56 66</h2>
+                </div>
+            </div>
+           
+            <div class="call-us">
+                <h2>Nos Medecin</h2>
+                <p>Qualified doctors available six days a week, view our timetable to make an appointment.</p>
+                <button class="doctor-btn">
+                    Trouve un docteur >
+
+                </button>
+            </div>
+            
+            <div class="call-us" id="our-open-hour">
+                <h2>Heure</h2>
+                <p>Lundi - Dimanche <span>08:30</span> <span>20:30</span></p>
+                <div class="open-hour">
+                    <i>📞</i>
+                    <span>666 88 56 66</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <!-- Specialties Section -->
     <section class="specialties" id="specialties">
         <div class="container">
             <h2 class="section-title">Un écosystème pour l'excellence clinique</h2>
-            <p class="section-subtitle">Découvrez des soins de santé de classe mondiale dans les centres d'innovation médicale spécialisés d'Omnio. Nos installations de pointe offrent une expertise inégalée dans les spécialités clés et les superspécialités, établissant de nouvelles normes mondiales en matière d'excellence clinique et de soins aux patients.</p>
-            
+            <p class="section-subtitle">Découvrez des soins de santé de classe mondiale dans les centres d'innovation
+                médicale spécialisés d'Omnio. Nos installations de pointe offrent une expertise inégalée dans les
+                spécialités clés et les superspécialités, établissant de nouvelles normes mondiales en matière
+                d'excellence clinique et de soins aux patients.</p>
+
             <div class="specialties-grid" id="specialties-grid">
                 <div class="loading">
                     <div class="spinner"></div>
                 </div>
             </div>
-            
+
             <div style="text-align: center;">
                 <a href="#all-specialties" class="view-all-btn">Voir toutes les spécialités →</a>
             </div>
@@ -95,15 +210,15 @@
                     <p>Découvrez comment nous favorisons l'innovation</p>
                     <a href="#innovation" class="learn-more-link">En savoir plus →</a>
                 </div>
-                
+
                 <div class="disease-search-content">
                     <h2 class="section-title">Rechercher des maladies et des affections</h2>
                     <p>Rechercher des maladies et des affections par la première lettre</p>
-                    
+
                     <div class="alphabet-grid" id="alphabet-grid">
                         <!-- Alphabet buttons will be generated by JavaScript -->
                     </div>
-                    
+
                     <div class="disease-search-box">
                         <input type="text" placeholder="Search diseases..." id="disease-search-input">
                         <button class="search-btn" onclick="searchDisease()">🔍</button>
@@ -117,8 +232,10 @@
     <section class="stats">
         <div class="container">
             <h2 class="section-title">Pourquoi choisir <span class="highlight">Clinique Priorité Santé ?</span></h2>
-            <p class="section-subtitle">À la Clinique Priorité Santé, nous combinons soins médicaux experts et compassion, offrant un traitement personnalisé pour garantir que chaque patient se sente soutenu et valorisé tout au long de son parcours de guérison..</p>
-            
+            <p class="section-subtitle">À la Clinique Priorité Santé, nous combinons soins médicaux experts et
+                compassion, offrant un traitement personnalisé pour garantir que chaque patient se sente soutenu et
+                valorisé tout au long de son parcours de guérison..</p>
+
             <div class="stats-grid" id="stats-grid">
                 <div class="loading">
                     <div class="spinner"></div>
@@ -133,14 +250,15 @@
             <div class="testimonials-content">
                 <h2 class="section-title">Voix de confiance</h2>
                 <h3 style="font-size: 2rem; margin-bottom: 1rem;">Nos patients</h3>
-                <p class="section-subtitle">Histoires vraies de nos patients sur leur cheminement vers la guérison avec la Clinique Priorité Santé</p>
-                
+                <p class="section-subtitle">Histoires vraies de nos patients sur leur cheminement vers la guérison avec
+                    la Clinique Priorité Santé</p>
+
                 <div class="testimonials-slider" id="testimonials-slider">
                     <div class="loading">
                         <div class="spinner"></div>
                     </div>
                 </div>
-                
+
                 <div class="slider-controls">
                     <button class="slider-btn" onclick="slideTestimonials('prev')">‹</button>
                     <button class="slider-btn" onclick="slideTestimonials('next')">›</button>
@@ -153,8 +271,9 @@
     <section class="healthcare-partners">
         <div class="container">
             <h2 class="section-title">Approuvé par les principaux partenaires du secteur de la santé</h2>
-            <p class="section-subtitle">Collaborer avec des partenaires de confiance pour offrir les meilleurs services de santé</p>
-            
+            <p class="section-subtitle">Collaborer avec des partenaires de confiance pour offrir les meilleurs services
+                de santé</p>
+
             <div class="partners-grid">
                 <div class="partner-logo">
                     <img src="static/images/partners/bpjs-kesehatan.png" alt="BPJS Kesehatan">
@@ -200,21 +319,22 @@
     <section class="priority-actions">
         <div class="container">
             <h2 class="priority-title">Votre santé, c'est notre priorité</h2>
-            
+
             <div class="action-cards-container">
                 <div class="action-card emergency-card" onclick="handleActionClick('emergency')">
                     <div class="card-content">
                         <div class="card-icon emergency-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                <circle cx="16" cy="16" r="12" fill="#ff4757"/>
-                                <path d="M16 10v8M16 22v2" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="16" cy="16" r="12" fill="#ff4757" />
+                                <path d="M16 10v8M16 22v2" stroke="white" stroke-width="2" stroke-linecap="round" />
                             </svg>
                         </div>
                         <span class="card-text">Appel d'urgence</span>
                     </div>
                     <div class="card-arrow">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
@@ -223,16 +343,17 @@
                     <div class="card-content">
                         <div class="card-icon doctor-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                <circle cx="16" cy="10" r="4" fill="#4a90e2"/>
-                                <path d="M8 24c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#4a90e2" stroke-width="2"/>
-                                <path d="M16 6v4M14 8h4" stroke="white" stroke-width="1.5"/>
+                                <circle cx="16" cy="10" r="4" fill="#4a90e2" />
+                                <path d="M8 24c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#4a90e2" stroke-width="2" />
+                                <path d="M16 6v4M14 8h4" stroke="white" stroke-width="1.5" />
                             </svg>
                         </div>
                         <span class="card-text">Trouver un médecin</span>
                     </div>
                     <div class="card-arrow">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
@@ -241,20 +362,21 @@
                     <div class="card-content">
                         <div class="card-icon appointment-icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                <rect x="6" y="8" width="20" height="16" rx="2" stroke="#4a90e2" stroke-width="2"/>
-                                <path d="M12 4v8M20 4v8" stroke="#4a90e2" stroke-width="2"/>
-                                <rect x="10" y="14" width="2" height="2" fill="#4a90e2"/>
-                                <rect x="15" y="14" width="2" height="2" fill="#4a90e2"/>
-                                <rect x="20" y="14" width="2" height="2" fill="#4a90e2"/>
-                                <rect x="10" y="18" width="2" height="2" fill="#4a90e2"/>
-                                <rect x="15" y="18" width="2" height="2" fill="#4a90e2"/>
+                                <rect x="6" y="8" width="20" height="16" rx="2" stroke="#4a90e2" stroke-width="2" />
+                                <path d="M12 4v8M20 4v8" stroke="#4a90e2" stroke-width="2" />
+                                <rect x="10" y="14" width="2" height="2" fill="#4a90e2" />
+                                <rect x="15" y="14" width="2" height="2" fill="#4a90e2" />
+                                <rect x="20" y="14" width="2" height="2" fill="#4a90e2" />
+                                <rect x="10" y="18" width="2" height="2" fill="#4a90e2" />
+                                <rect x="15" y="18" width="2" height="2" fill="#4a90e2" />
                             </svg>
                         </div>
                         <span class="card-text">Prendre rendez-vous</span>
                     </div>
                     <div class="card-arrow">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 5l5 5-5 5" stroke="#4a90e2" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
@@ -269,9 +391,10 @@
             <div class="footer-main">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <span class="logo-icon"><img src="static/images/logo-01.svg" alt="" style="width: 200px; height: 90px;"></span>
+                        <span class="logo-icon"><img src="static/images/logo-01.svg" alt=""
+                                style="width: 200px; height: 90px;"></span>
                     </div>
-                    
+
                     <div class="social-links">
                         <a href="#" class="social-link twitter">✕</a>
                         <a href="#" class="social-link facebook">f</a>
@@ -280,7 +403,7 @@
                         <a href="#" class="social-link instagram">📷</a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Entreprise</h4>
@@ -292,7 +415,7 @@
                             <li><a href="#awards">Récompenses</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="footer-column">
                         <h4>Spécialité</h4>
                         <ul>
@@ -307,7 +430,7 @@
                             <li><a href="#pediatric">Soins pédiatriques</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="footer-column">
                         <h4>Services médicaux</h4>
                         <ul>
@@ -319,7 +442,7 @@
                             <li><a href="#ambulance">Ambulance</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="footer-column">
                         <h4>À propos de la Clinique Priorité Santé</h4>
                         <ul>
@@ -332,7 +455,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="footer-bottom-left">
@@ -346,9 +469,10 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="static/js/data.js"></script>
     <script src="static/js/navigation.js"></script>
     <script src="static/js/main.js"></script>
 </body>
+
 </html>
